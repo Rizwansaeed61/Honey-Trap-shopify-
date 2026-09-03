@@ -1,0 +1,247 @@
+<section class="py-space-2xl bg-surface" id="signature-honey-trap">
+  <div class="max-w-7xl mx-auto px-gutter space-y-space-xl">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm border-b border-outline-variant/40 pb-space-md">
+      <div>
+        <div class="font-label-caps uppercase tracking-[0.2em] text-primary flex items-center gap-1 text-xs">
+          <span class="material-symbols-outlined text-[16px] text-primary">auto_awesome</span>
+          Artisanal Extrait Collection
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface mt-1 font-semibold">Signature Perfumes</h2>
+      </div>
+      <p class="font-body-md text-on-surface-variant max-w-md text-xs sm:text-sm leading-relaxed">
+        Meticulously aged with up to 35% pure perfume oils imported directly from Grasse, France. Designed to linger and command attention.
+      </p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg" id="product-card-grid">
+      <!-- Product 1: Honey Trap (Hero Flagship) -->
+      <div class="product-item flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-md hover:shadow-2xl border border-primary-container/40 transition-all duration-300 relative group" data-concerns="gourmand amber">
+        <div class="flex items-center justify-between gap-space-xs mb-space-xs">
+          <div class="flex flex-wrap gap-1">
+            <span class="bg-primary text-on-primary font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">Signature Bestseller</span>
+            <span class="bg-primary-fixed text-on-primary-fixed font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">12h+ Sillage</span>
+          </div>
+          <button class="text-outline hover:text-error transition-colors" title="Save to wishlist">
+            <span class="material-symbols-outlined text-[20px]">favorite</span>
+          </button>
+        </div>
+
+        <a href="{{ routes.root_url }}products/honey-trap" class="h-60 w-full bg-gradient-to-b from-surface-bright to-surface-container-low rounded-lg overflow-hidden flex items-center justify-center relative p-space-xs mb-space-sm border border-outline-variant/30 block">
+          <img alt="Honey Trap Extrait De Parfum bottle" class="h-full object-contain transform group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFbjeLEsSMrk90Nxs3degWda54RyyjHUj6aYb8FIpZli2h1oqWobfxgrZOwLpQAfBwKq_VEJvW5h5tokGoNuwsNh1d8kdLsxvRCr3Zftgpt1IoScxQYrCjl7SY282nqrIKmOq4-Pf7ja93ZfJTIIw9cWnzzpcbX_yla7hLIYxGi67zAdljfsZG_81g2b8paOr-5CRL6EESCXnEA7KpZ0uYqYcjVSnJO76crBOgCgxxsLqeOtrkB3tO1CO2gUloNSTQqZg"/>
+          <span class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-space-xs py-0.5 rounded font-label-caps text-[10px] text-primary border border-outline-variant/40 uppercase tracking-wider">Extrait de Parfum</span>
+        </a>
+
+        <div class="flex-1 flex flex-col">
+          <div class="flex items-center gap-1 text-primary mb-1">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="font-label-caps text-xs text-on-surface font-semibold">4.9</span>
+            <span class="font-body-md text-on-surface-variant text-xs">(840 reviews)</span>
+          </div>
+          <a href="{{ routes.root_url }}products/honey-trap" class="font-serif text-on-surface mb-1 text-lg font-bold hover:text-primary transition-colors">Honey Trap</a>
+          <p class="font-body-md text-on-surface-variant line-clamp-2 mb-space-xs text-xs">
+            Raw Wild Honey, Spiced Cocoa Truffle, Orange Blossom &amp; Bourbon Vanilla. Warm, intoxicating, and memorable.
+          </p>
+          <div class="bg-surface-container-low p-1.5 rounded text-[11px] font-body-md text-tertiary mb-space-sm border border-outline-variant/30">
+            <span class="font-semibold text-primary">Notes:</span> Honey • Orange Blossom • Cinnamon
+          </div>
+
+          <div class="space-y-space-2xs mb-space-sm mt-auto">
+            <span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Select Volume:</span>
+            <div class="grid grid-cols-2 gap-space-2xs">
+              <button class="size-btn active p-space-2xs rounded bg-surface-container-high text-primary font-label-caps text-xs flex flex-col items-center border border-primary/40" onclick="selectProductSize(this, '2450', '50ml')">
+                <span>50 ml Flacon</span>
+                <span class="font-bold">Rs. 2,450</span>
+              </button>
+              <button class="size-btn p-space-2xs rounded bg-surface-container-low text-on-surface-variant font-label-caps text-xs flex flex-col items-center hover:bg-surface-container border border-outline-variant/50" onclick="selectProductSize(this, '3950', '100ml')">
+                <span>100 ml Flacon</span>
+                <span class="font-bold">Rs. 3,950</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pt-space-xs">
+            <button class="w-full py-space-xs rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-caps text-xs tracking-wider flex items-center justify-center gap-space-2xs hover:opacity-95 shadow-sm" onclick="window.luxuryCart.addItem({id: 'honey-trap-50ml', title: 'Honey Trap', presentation: '50ml Flacon', price: 2450})">
+              <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+              <span class="atc-btn-text">ADD TO BAG • Rs. 2,450</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2: Catch 22 -->
+      <div class="product-item flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-xl border border-outline-variant/60 transition-all duration-300" data-concerns="citrus woody">
+        <div class="flex items-center justify-between gap-space-xs mb-space-xs">
+          <div class="flex flex-wrap gap-1">
+            <span class="bg-surface-container-high text-on-surface-variant font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">Fresh Aromatic</span>
+            <span class="bg-primary-fixed text-on-primary-fixed font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">Unisex</span>
+          </div>
+          <button class="text-outline hover:text-error transition-colors" title="Save to wishlist">
+            <span class="material-symbols-outlined text-[20px]">favorite</span>
+          </button>
+        </div>
+
+        <div class="h-60 w-full bg-gradient-to-b from-surface-bright to-surface-container-low rounded-lg overflow-hidden flex items-center justify-center relative p-space-xs mb-space-sm border border-outline-variant/30">
+          <img alt="Catch 22 artisanal perfume bottle" class="h-44 object-contain filter drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0TmmAjSZ_1dkQaMCu53hxgIKpljKXS-Z1-Q2b4VGVV7WUg65UMktB0RrBNKKHcOfgwDu8-jvUfO_p4hKdtOD9u8o85ykBrM8Zw2ySfFKsFf5UDDs19yqJoEvSergR7jcAKDFEK4Qsier6oNZGMDpWUNVALEMcHWd0AFOzOJw8AJWVjwpBrdd3Oo3w7XeHqniW3WUZog1240n44r8l4LvPadnDja_2ZdI9oDUJwkKtEYBir9gDb5NELQ"/>
+          <span class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-space-xs py-0.5 rounded font-label-caps text-[10px] text-primary border border-outline-variant/40 uppercase tracking-wider">Extrait de Parfum</span>
+        </div>
+
+        <div class="flex-1 flex flex-col">
+          <div class="flex items-center gap-1 text-primary mb-1">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="font-label-caps text-xs text-on-surface font-semibold">4.8</span>
+            <span class="font-body-md text-on-surface-variant text-xs">(412 reviews)</span>
+          </div>
+          <h3 class="font-serif text-on-surface mb-1 text-lg font-bold">Catch 22</h3>
+          <p class="font-body-md text-on-surface-variant line-clamp-2 mb-space-xs text-xs">
+            Crisp Bergamot, Pineapple, Birch Smoke, and Ambroxan. Modern, magnetic, and effortlessly charismatic.
+          </p>
+          <div class="bg-surface-container-low p-1.5 rounded text-[11px] font-body-md text-tertiary mb-space-sm border border-outline-variant/30">
+            <span class="font-semibold text-primary">Notes:</span> Pineapple • Birch • Smoky Oakmoss
+          </div>
+
+          <div class="space-y-space-2xs mb-space-sm mt-auto">
+            <span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Select Volume:</span>
+            <div class="grid grid-cols-2 gap-space-2xs">
+              <button class="size-btn active p-space-2xs rounded bg-surface-container-high text-primary font-label-caps text-xs flex flex-col items-center border border-primary/40" onclick="selectProductSize(this, '1750', '50ml')">
+                <span>50 ml Flacon</span>
+                <span class="font-bold">Rs. 1,750</span>
+              </button>
+              <button class="size-btn p-space-2xs rounded bg-surface-container-low text-on-surface-variant font-label-caps text-xs flex flex-col items-center hover:bg-surface-container border border-outline-variant/50" onclick="selectProductSize(this, '2950', '100ml')">
+                <span>100 ml Flacon</span>
+                <span class="font-bold">Rs. 2,950</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pt-space-xs">
+            <button class="w-full py-space-xs rounded-full bg-surface-container text-primary hover:bg-primary hover:text-white border border-outline-variant/70 font-label-caps text-xs tracking-wider flex items-center justify-center gap-space-2xs transition-colors" onclick="window.luxuryCart.addItem({id: 'catch-22-50ml', title: 'Catch 22', presentation: '50ml Flacon', price: 1750})">
+              <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+              <span class="atc-btn-text">ADD TO BAG • Rs. 1,750</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3: Smoky Knight Amber -->
+      <div class="product-item flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-xl border border-outline-variant/60 transition-all duration-300" data-concerns="amber woody">
+        <div class="flex items-center justify-between gap-space-xs mb-space-xs">
+          <div class="flex flex-wrap gap-1">
+            <span class="bg-secondary-fixed text-on-secondary-fixed font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">Smoky Oudh</span>
+            <span class="bg-surface-container-high text-on-surface-variant font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">Nightwear</span>
+          </div>
+          <button class="text-outline hover:text-error transition-colors" title="Save to wishlist">
+            <span class="material-symbols-outlined text-[20px]">favorite</span>
+          </button>
+        </div>
+
+        <div class="h-60 w-full bg-gradient-to-b from-surface-bright to-surface-container-low rounded-lg overflow-hidden flex items-center justify-center relative p-space-xs mb-space-sm border border-outline-variant/30">
+          <img alt="The Dark Knight Amber perfume bottle" class="h-44 object-contain filter drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG-Sq63FRjKlvZmCnd8BvK9k8YB_8Ev_GuVpnbQOwqg-q3qprF167lK9nsrvmVuaWVgpZFpi1oGUQT3yoe26_Jj2rY-wxAQJfgrtVimx8pZAFKYqWVQ3_rSChqXYOb-2yIQ0I6PNV7UJ7FW1SaHv0BmQ9M-ZzqhlnhvD2_osQmbB1FPq2KPWw3J_2EYYkRMVyp-xvXk8iJkNSL2-lehz9BXCvfFadVzDFwvNcPCe6oqBj_sLZTfsW_KA"/>
+          <span class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-space-xs py-0.5 rounded font-label-caps text-[10px] text-primary border border-outline-variant/40 uppercase tracking-wider">Extrait de Parfum</span>
+        </div>
+
+        <div class="flex-1 flex flex-col">
+          <div class="flex items-center gap-1 text-primary mb-1">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="font-label-caps text-xs text-on-surface font-semibold">4.9</span>
+            <span class="font-body-md text-on-surface-variant text-xs">(365 reviews)</span>
+          </div>
+          <h3 class="font-serif text-on-surface mb-1 text-lg font-bold">Smoky Knight Amber</h3>
+          <p class="font-body-md text-on-surface-variant line-clamp-2 mb-space-xs text-xs">
+            Tuscan Leather, Cardamom, Incense, and Cambodian Agarwood. Dark, opulent, and dangerously alluring.
+          </p>
+          <div class="bg-surface-container-low p-1.5 rounded text-[11px] font-body-md text-tertiary mb-space-sm border border-outline-variant/30">
+            <span class="font-semibold text-primary">Notes:</span> Leather • Oudh • Ambergris
+          </div>
+
+          <div class="space-y-space-2xs mb-space-sm mt-auto">
+            <span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Select Volume:</span>
+            <div class="grid grid-cols-2 gap-space-2xs">
+              <button class="size-btn active p-space-2xs rounded bg-surface-container-high text-primary font-label-caps text-xs flex flex-col items-center border border-primary/40" onclick="selectProductSize(this, '1950', '50ml')">
+                <span>50 ml Flacon</span>
+                <span class="font-bold">Rs. 1,950</span>
+              </button>
+              <button class="size-btn p-space-2xs rounded bg-surface-container-low text-on-surface-variant font-label-caps text-xs flex flex-col items-center hover:bg-surface-container border border-outline-variant/50" onclick="selectProductSize(this, '3250', '100ml')">
+                <span>100 ml Flacon</span>
+                <span class="font-bold">Rs. 3,250</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pt-space-xs">
+            <button class="w-full py-space-xs rounded-full bg-surface-container text-primary hover:bg-primary hover:text-white border border-outline-variant/70 font-label-caps text-xs tracking-wider flex items-center justify-center gap-space-2xs transition-colors" onclick="window.luxuryCart.addItem({id: 'smoky-knight-50ml', title: 'Smoky Knight Amber', presentation: '50ml Flacon', price: 1950})">
+              <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+              <span class="atc-btn-text">ADD TO BAG • Rs. 1,950</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4: Fleur de Nuit -->
+      <div class="product-item flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-xl border border-outline-variant/60 transition-all duration-300" data-concerns="citrus gourmand">
+        <div class="flex items-center justify-between gap-space-xs mb-space-xs">
+          <div class="flex flex-wrap gap-1">
+            <span class="bg-primary-fixed text-on-primary-fixed font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">White Floral</span>
+            <span class="bg-surface-container-high text-on-surface-variant font-label-caps text-[9px] px-space-xs py-0.5 rounded-full uppercase tracking-wider">Elegance</span>
+          </div>
+          <button class="text-outline hover:text-error transition-colors" title="Save to wishlist">
+            <span class="material-symbols-outlined text-[20px]">favorite</span>
+          </button>
+        </div>
+
+        <div class="h-60 w-full bg-gradient-to-b from-surface-bright to-surface-container-low rounded-lg overflow-hidden flex items-center justify-center relative p-space-xs mb-space-sm border border-outline-variant/30">
+          <img alt="Fleur de Nuit perfume flask" class="h-44 object-contain filter drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9WtMtMm6ykLxQFOWnaTjHLtLuJX2r21IYMeRA8YblT6-2999aXI1m80XkuE780nw-Lh5SUreLrnPX2mI-QcuEEfuz2nB8UMPdRbJguhbvUG4rkFB9tGDibeLtQTJlbQMQPD_4JKtASf6kAdc_U5QkGNplFrRWceD6iHkHWjDQkqzaYrTFLRKYeWKtAoq8C_MCD8WKbeGr5g6U7FR3d85drVZQn58y5G7thESUKn4ub3TmFq09PJD27Q"/>
+          <span class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-space-xs py-0.5 rounded font-label-caps text-[10px] text-primary border border-outline-variant/40 uppercase tracking-wider">Extrait de Parfum</span>
+        </div>
+
+        <div class="flex-1 flex flex-col">
+          <div class="flex items-center gap-1 text-primary mb-1">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="font-label-caps text-xs text-on-surface font-semibold">4.7</span>
+            <span class="font-body-md text-on-surface-variant text-xs">(218 reviews)</span>
+          </div>
+          <h3 class="font-serif text-on-surface mb-1 text-lg font-bold">Fleur de Nuit</h3>
+          <p class="font-body-md text-on-surface-variant line-clamp-2 mb-space-xs text-xs">
+            Jasmine Sambac, White Gardenia, Creamy Sandalwood &amp; Cashmere musk. Pure sophisticated opulence.
+          </p>
+          <div class="bg-surface-container-low p-1.5 rounded text-[11px] font-body-md text-tertiary mb-space-sm border border-outline-variant/30">
+            <span class="font-semibold text-primary">Notes:</span> Jasmine • Sandalwood • Musc Blanc
+          </div>
+
+          <div class="space-y-space-2xs mb-space-sm mt-auto">
+            <span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Select Volume:</span>
+            <div class="grid grid-cols-2 gap-space-2xs">
+              <button class="size-btn active p-space-2xs rounded bg-surface-container-high text-primary font-label-caps text-xs flex flex-col items-center border border-primary/40" onclick="selectProductSize(this, '1650', '50ml')">
+                <span>50 ml Flacon</span>
+                <span class="font-bold">Rs. 1,650</span>
+              </button>
+              <button class="size-btn p-space-2xs rounded bg-surface-container-low text-on-surface-variant font-label-caps text-xs flex flex-col items-center hover:bg-surface-container border border-outline-variant/50" onclick="selectProductSize(this, '2800', '100ml')">
+                <span>100 ml Flacon</span>
+                <span class="font-bold">Rs. 2,800</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pt-space-xs">
+            <button class="w-full py-space-xs rounded-full bg-surface-container text-primary hover:bg-primary hover:text-white border border-outline-variant/70 font-label-caps text-xs tracking-wider flex items-center justify-center gap-space-2xs transition-colors" onclick="window.luxuryCart.addItem({id: 'fleur-de-nuit-50ml', title: 'Fleur de Nuit', presentation: '50ml Flacon', price: 1650})">
+              <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+              <span class="atc-btn-text">ADD TO BAG • Rs. 1,650</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

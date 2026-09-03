@@ -1,0 +1,54 @@
+<div class="max-w-4xl mx-auto px-gutter py-space-2xl">
+  <h1 class="font-serif text-3xl sm:text-4xl text-primary font-semibold mb-space-lg text-center">Your Fragrance Bag</h1>
+
+  {% if cart.item_count > 0 %}
+    <form action="{{ routes.cart_url }}" method="post" class="space-y-space-md">
+      <div class="space-y-space-sm">
+        {% for item in cart.items %}
+          <div class="flex items-center justify-between p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/30">
+            <div class="flex items-center gap-space-md">
+              {% if item.image %}
+                <img src="{{ item.image | image_url: width: 100 }}" alt="{{ item.title | escape }}" class="w-16 h-16 object-contain rounded-lg bg-surface-container-low p-1" />
+              {% endif %}
+              <div>
+                <h3 class="font-serif font-bold text-on-surface text-base">{{ item.product.title }}</h3>
+                <p class="font-body-md text-xs text-on-surface-variant">{{ item.variant.title }}</p>
+                <div class="font-serif text-primary font-bold text-sm mt-1">{{ item.final_line_price | money }}</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-sm">
+              <span class="text-xs text-on-surface-variant">Qty: {{ item.quantity }}</span>
+              <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-outline hover:text-error text-xs">Remove</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="p-space-lg bg-surface-container-low rounded-xl border border-outline-variant/40 flex flex-col items-end gap-space-sm">
+        <div class="flex justify-between w-full max-w-xs font-body-md text-sm">
+          <span>Subtotal:</span>
+          <span class="font-serif text-primary font-bold text-lg">{{ cart.total_price | money }}</span>
+        </div>
+        <p class="text-xs text-tertiary">Taxes &amp; shipping calculated at checkout</p>
+        <button type="submit" name="checkout" class="bg-primary hover:bg-primary-container text-on-primary px-space-xl py-space-sm rounded-full font-label-caps text-xs uppercase tracking-widest font-bold shadow-md transition-colors">
+          Proceed to Checkout
+        </button>
+      </div>
+    </form>
+  {% else %}
+    <div class="text-center py-space-xl space-y-space-sm">
+      <div class="w-16 h-16 rounded-full bg-primary-fixed/50 flex items-center justify-center text-primary mx-auto">
+        <span class="material-symbols-outlined text-[32px]">local_mall</span>
+      </div>
+      <p class="font-serif text-xl text-on-surface">Your pouch is currently empty.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="inline-block bg-primary text-on-primary px-space-lg py-space-xs rounded-full font-label-caps text-xs uppercase tracking-widest font-semibold">Explore Fragrances</a>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "settings": []
+}
+{% endschema %}

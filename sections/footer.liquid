@@ -1,0 +1,98 @@
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/50 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
+  <!-- Top Trust Bar -->
+  <div class="bg-surface-container-low py-space-lg border-b border-outline-variant/40">
+    <div class="max-w-7xl mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-space-md">
+      <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-primary text-[28px]">local_shipping</span>
+        <div>
+          <div class="font-label-caps text-on-surface text-xs font-semibold">Complimentary Courier</div>
+          <div class="font-body-md text-tertiary text-xs">On all orders above Rs. 1,500</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-primary text-[28px]">verified</span>
+        <div>
+          <div class="font-label-caps text-on-surface text-xs font-semibold">Authenticity Certified</div>
+          <div class="font-body-md text-tertiary text-xs">Original French Grasse essences</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-primary text-[28px]">redeem</span>
+        <div>
+          <div class="font-label-caps text-on-surface text-xs font-semibold">Free Scent Vial</div>
+          <div class="font-body-md text-tertiary text-xs">Included with every purchase</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-primary text-[28px]">lock_reset</span>
+        <div>
+          <div class="font-label-caps text-on-surface text-xs font-semibold">Scent Guarantee</div>
+          <div class="font-body-md text-tertiary text-xs">Exchange if not deeply loved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Navigation -->
+  <div class="max-w-7xl mx-auto px-gutter py-space-xl grid grid-cols-1 md:grid-cols-12 gap-space-xl">
+    <div class="md:col-span-4 space-y-space-md">
+      <div class="flex items-center gap-space-sm">
+        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-surface-bright font-serif text-sm">S</div>
+        <span class="font-serif text-primary font-bold text-xl">Scents 'N Stories</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
+        Haute Parfumerie born from romantic narratives and classical artisanal compounding. We specialize in Extrait de Parfum creations engineered for dramatic presence and intimate memories.
+      </p>
+    </div>
+
+    <div class="md:col-span-2 space-y-space-sm">
+      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">Fragrances</div>
+      <ul class="space-y-space-xs font-body-md text-on-surface-variant text-xs">
+        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}products/honey-trap">Honey Trap Extrait</a></li>
+        <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}?filter=gourmand">Sweet &amp; Gourmand</a></li>
+        <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}?filter=amber">Amber &amp; Spiced</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#regimen">Discovery Layering Sets</a></li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-2 space-y-space-sm">
+      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">Maison Services</div>
+      <ul class="space-y-space-xs font-body-md text-on-surface-variant text-xs">
+        <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}#quiz">Scent Consultation Quiz</a></li>
+        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/faq">Order Tracking &amp; Care</a></li>
+        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/contact">VIP Concierge &amp; Boutiques</a></li>
+        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/about">The Maison Archive</a></li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-4 space-y-space-sm">
+      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">The Parfumerie Gazette</div>
+      <p class="font-body-md text-on-surface-variant text-xs">
+        Receive private allocations, seasonal extrait releases, and secret scent notes directly in your inbox.
+      </p>
+      <div class="flex gap-space-xs">
+        <input class="flex-1 bg-surface-container-low px-space-md py-space-xs rounded-full font-body-md text-xs text-on-surface placeholder:text-outline border border-outline-variant/60 focus:outline-none focus:border-primary" placeholder="Enter your email address" type="email"/>
+        <button class="bg-primary text-on-primary px-space-md py-space-xs rounded-full font-label-caps text-xs hover:bg-primary-container transition-colors uppercase tracking-wider font-semibold">Join</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="bg-surface-container-low py-space-md border-t border-outline-variant/30">
+    <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-md text-xs">
+      <div>© {{ 'now' | date: '%Y' }} Scents 'N Stories Luxury Fragrance House. All olfactory compositions and rights reserved.</div>
+      <div class="flex gap-space-md">
+        <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+        <a class="hover:text-primary transition-colors" href="#">IFRA Compliance &amp; Authenticity</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,233 @@
+<div class="max-w-7xl mx-auto px-gutter py-space-xl w-full">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+    <!-- Left Sidebar Filters -->
+    <aside class="lg:col-span-3 flex flex-col gap-space-lg sticky top-40">
+      <div class="bg-surface-container-lowest p-space-lg rounded border border-outline-variant/40 shadow-sm flex flex-col gap-space-lg">
+        <div class="flex items-center justify-between border-b border-outline-variant/30 pb-space-sm">
+          <span class="font-serif text-lg text-primary font-semibold">Refine Scent</span>
+          <button class="font-label-caps text-xs text-secondary uppercase tracking-widest hover:underline font-bold">Reset</button>
+        </div>
+
+        <!-- Filter Section 1: Scent Family -->
+        <div class="flex flex-col gap-space-xs">
+          <h4 class="font-label-caps text-xs text-primary uppercase tracking-widest font-bold">Scent Family</h4>
+          <div class="flex flex-col gap-2 pt-1 font-body-md text-xs">
+            <label class="flex items-center gap-space-xs cursor-pointer group">
+              <input checked="" class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+              <span class="text-on-surface group-hover:text-primary">Gourmand &amp; Sweet</span>
+              <span class="ml-auto font-label-caps text-[10px] text-outline">8</span>
+            </label>
+            <label class="flex items-center gap-space-xs cursor-pointer group">
+              <input checked="" class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+              <span class="text-on-surface group-hover:text-primary">Floral Amber</span>
+              <span class="ml-auto font-label-caps text-[10px] text-outline">6</span>
+            </label>
+            <label class="flex items-center gap-space-xs cursor-pointer group">
+              <input class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+              <span class="text-on-surface group-hover:text-primary">Warm Spices</span>
+              <span class="ml-auto font-label-caps text-[10px] text-outline">5</span>
+            </label>
+            <label class="flex items-center gap-space-xs cursor-pointer group">
+              <input class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+              <span class="text-on-surface group-hover:text-primary">Woody Oud</span>
+              <span class="ml-auto font-label-caps text-[10px] text-outline">4</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter Section 2: Key Notes -->
+        <div class="flex flex-col gap-space-xs">
+          <h4 class="font-label-caps text-xs text-primary uppercase tracking-widest font-bold">Key Scent Notes</h4>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            <span class="bg-primary text-on-primary font-label-caps text-[11px] px-2.5 py-1 rounded cursor-pointer transition-colors uppercase tracking-wider">Honey</span>
+            <span class="bg-surface-container-low text-on-surface hover:bg-primary hover:text-on-primary font-label-caps text-[11px] px-2.5 py-1 rounded cursor-pointer transition-colors border border-outline-variant/30 uppercase tracking-wider">Cinnamon</span>
+            <span class="bg-surface-container-low text-on-surface hover:bg-primary hover:text-on-primary font-label-caps text-[11px] px-2.5 py-1 rounded cursor-pointer transition-colors border border-outline-variant/30 uppercase tracking-wider">Orange Blossom</span>
+            <span class="bg-surface-container-low text-on-surface hover:bg-primary hover:text-on-primary font-label-caps text-[11px] px-2.5 py-1 rounded cursor-pointer transition-colors border border-outline-variant/30 uppercase tracking-wider">Vanilla Bourbon</span>
+            <span class="bg-surface-container-low text-on-surface hover:bg-primary hover:text-on-primary font-label-caps text-[11px] px-2.5 py-1 rounded cursor-pointer transition-colors border border-outline-variant/30 uppercase tracking-wider">Amber Resin</span>
+          </div>
+        </div>
+
+        <!-- Filter Section 3: Concentration -->
+        <div class="flex flex-col gap-space-xs">
+          <h4 class="font-label-caps text-xs text-primary uppercase tracking-widest font-bold">Concentration</h4>
+          <div class="flex flex-col gap-2 pt-1 font-body-md text-xs">
+            <label class="flex items-center gap-space-xs cursor-pointer group">
+              <input checked="" class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+              <span class="text-on-surface group-hover:text-primary">Extrait de Parfum (35% Oil)</span>
+              <span class="ml-auto font-label-caps text-[10px] text-outline">12</span>
+            </label>
+            <label class="flex items-center gap-space-xs cursor-pointer group">
+              <input checked="" class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+              <span class="text-on-surface group-hover:text-primary">Eau de Parfum (EDP)</span>
+              <span class="ml-auto font-label-caps text-[10px] text-outline">8</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter Section 4: Price Range Slider -->
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-label-caps text-xs text-primary uppercase tracking-widest font-bold">Price Range</h4>
+            <span class="font-label-caps text-xs text-primary font-bold">Rs. 1,450 - Rs. 4,950</span>
+          </div>
+          <div class="pt-2">
+            <input class="w-full accent-primary bg-surface-container-high rounded cursor-pointer" max="5000" min="1200" type="range" value="3800"/>
+            <div class="flex justify-between font-label-caps text-[10px] text-outline pt-1">
+              <span>Rs. 1,200</span>
+              <span>Rs. 5,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perfumer Custom Consultation Box -->
+      <div class="bg-gradient-to-br from-primary via-on-primary-container to-primary text-on-primary p-space-md rounded border border-primary-container/40 shadow-md flex flex-col gap-space-xs relative overflow-hidden">
+        <span class="material-symbols-outlined text-[30px] text-primary-fixed">psychiatry</span>
+        <h4 class="font-serif font-bold text-base">Scent Styling Concierge</h4>
+        <p class="font-body-md text-xs text-primary-fixed leading-relaxed">Let our Master Nose curate a signature olfactory wardrobe tailored to your skin chemistry.</p>
+        <a class="mt-2 inline-flex items-center justify-center font-label-caps text-xs uppercase tracking-widest bg-secondary-container text-on-secondary-container font-bold px-space-md py-2 rounded hover:bg-secondary-fixed transition-colors" href="#quiz">
+          Consult Fragrance Nose
+        </a>
+      </div>
+    </aside>
+
+    <!-- Right Main Catalog Content -->
+    <div class="lg:col-span-9 flex flex-col gap-space-lg">
+      <!-- Top Toolbar -->
+      <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/40 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+        <div class="flex items-center gap-space-sm">
+          <span class="font-serif text-lg text-primary font-semibold">Showing 8 Artisanal Creations</span>
+          <span class="hidden md:inline-block bg-surface-container text-secondary font-label-caps text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded border border-outline-variant/30">Direct From Atelier</span>
+        </div>
+        <div class="flex items-center gap-space-md w-full sm:w-auto justify-between sm:justify-end">
+          <div class="flex items-center gap-space-xs">
+            <span class="font-label-caps text-xs text-outline uppercase tracking-wider">Sort:</span>
+            <select aria-label="Sort creations" class="bg-surface-container-low pl-3 pr-8 py-1.5 rounded font-label-caps text-xs text-primary cursor-pointer border border-outline-variant/40">
+              <option>Most Acclaimed &amp; Bestselling</option>
+              <option>Highest Concentration</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-lg">
+        <!-- Honey Trap -->
+        <div class="bg-surface-container-lowest rounded border-2 border-primary-container/60 p-space-md shadow-md flex flex-col justify-between group hover:border-primary transition-all relative">
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center justify-between">
+              <span class="bg-primary text-on-primary font-label-caps text-[10px] uppercase tracking-widest px-2 py-0.5 rounded font-bold">Iconic Bestseller</span>
+              <span class="bg-surface-container text-secondary font-label-caps text-[10px] uppercase tracking-widest px-2 py-0.5 rounded">Gourmand Amber</span>
+            </div>
+            <a href="{{ routes.root_url }}products/honey-trap" class="relative w-full h-56 bg-surface-container-low/50 rounded overflow-hidden my-space-xs flex items-center justify-center p-3 border border-outline-variant/20 block">
+              <img alt="Honey Trap Perfume Bottle" class="object-contain h-50 w-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB-FeivbXQIuwafGQGjYyksaR3J6r9wwcYf7OKK9TIbK7I2Vi3tqgA4xz8ocM6qsyTG7sB6AKlXUUEx0PHtzh6AOhwO3vG1VV-FW0Ciujub1eo0dXm2W5QrLpwYt4jjYkq4pvlmMCHgcg0I7OTYvmNupV2749HKN2Zu_r_gy_EWpycmkqatJixRx-tP9eOjYCaSIfGCNqOkqpRjTULclBKD5U6RXSWq-8WcS50nE6w7XCrgNJTpp7OfY17Z5cvIU7voBM"/>
+            </a>
+            <h3 class="font-serif text-lg text-primary font-bold"><a href="{{ routes.root_url }}products/honey-trap">Honey Trap</a></h3>
+            <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">Golden wild honey, spiced orange blossom, and comforting cinnamon bark on a velvety amber base.</p>
+            <div class="bg-surface-container-low px-2 py-1 rounded flex items-center gap-1.5 border border-outline-variant/30 my-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              <span class="font-label-caps text-[10px] text-secondary font-semibold uppercase tracking-wider">Notes: Honey • Orange Blossom • Cinnamon</span>
+            </div>
+          </div>
+          <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+            <span class="font-serif text-base text-primary font-bold">Rs. 2,450</span>
+            <button onclick="window.luxuryCart.addItem({id: 'honey-trap-50ml', title: 'Honey Trap', presentation: '50ml Flacon', price: 2450})" class="bg-primary hover:bg-on-primary-container text-on-primary font-label-caps text-xs uppercase tracking-widest px-4 py-2 rounded shadow-sm transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+              Acquire
+            </button>
+          </div>
+        </div>
+
+        <!-- Velvet Vanilla Oud -->
+        <div class="bg-surface-container-lowest rounded border border-outline-variant/40 p-space-md shadow-sm flex flex-col justify-between group hover:border-primary transition-all">
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center justify-between">
+              <span class="bg-secondary text-on-secondary font-label-caps text-[10px] uppercase tracking-widest px-2 py-0.5 rounded font-bold">Extrait de Parfum</span>
+              <span class="bg-surface-container text-secondary font-label-caps text-[10px] uppercase tracking-widest px-2 py-0.5 rounded">Woody Amber</span>
+            </div>
+            <div class="relative w-full h-56 bg-surface-container-low/50 rounded overflow-hidden my-space-xs flex items-center justify-center p-3 border border-outline-variant/20">
+              <img alt="Velvet Vanilla Oud" class="object-contain h-50 w-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAerXbQM64nwjqSr6ePeCGukr8gma0Z8k9EcrlfoFKahod_ugHNr4bZUhFiiJTT72u8I3A5-BkHZy-tsP_Z_vimlNT7B2wASTE-PhVjGdQR_bVDOqfAse3pSone_ETufQyR7Y1wt-eJBLZnaRtfPb3PVZV7E_DNqw88Et-hDUNq_R37EVk7G6kTrkaXscMkFhMCpNVBuKmXtWKdJOQ1HIAchQeB-eF7-_qx0elhw6AMUkr5tUmJz0npFg"/>
+            </div>
+            <h3 class="font-serif text-lg text-primary font-bold">Velvet Vanilla Oud</h3>
+            <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">Madagascar Bourbon vanilla fused with smoky Cambodian agarwood and roasted tonka bean.</p>
+            <div class="bg-surface-container-low px-2 py-1 rounded flex items-center gap-1.5 border border-outline-variant/30 my-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              <span class="font-label-caps text-[10px] text-secondary font-semibold uppercase tracking-wider">Notes: Bourbon Vanilla • Aged Oud</span>
+            </div>
+          </div>
+          <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+            <span class="font-serif text-base text-primary font-bold">Rs. 2,650</span>
+            <button onclick="window.luxuryCart.addItem({id: 'velvet-vanilla-50ml', title: 'Velvet Vanilla Oud', presentation: '50ml Flacon', price: 2650})" class="bg-primary hover:bg-on-primary-container text-on-primary font-label-caps text-xs uppercase tracking-widest px-4 py-2 rounded shadow-sm transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+              Acquire
+            </button>
+          </div>
+        </div>
+
+        <!-- Amber Royale Extrait -->
+        <div class="bg-surface-container-lowest rounded border border-outline-variant/40 p-space-md shadow-sm flex flex-col justify-between group hover:border-primary transition-all">
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center justify-between">
+              <span class="bg-surface-container-high text-primary font-label-caps text-[10px] uppercase tracking-widest px-2 py-0.5 rounded font-bold border border-outline-variant/30">Maison Reserve</span>
+              <span class="bg-surface-container text-secondary font-label-caps text-[10px] uppercase tracking-widest px-2 py-0.5 rounded">Warm Spices</span>
+            </div>
+            <div class="relative w-full h-56 bg-surface-container-low/50 rounded overflow-hidden my-space-xs flex items-center justify-center p-3 border border-outline-variant/20">
+              <img alt="Amber Royale Extrait" class="object-contain h-50 w-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD46YYZsolfAmEJIyxineAC8Gkb-XeH5wcydrYhBpc43UxI6Nr9PkuLzkhrgrmuaUraQNTTzdqu25J81DfbBp4MDOIKllTZ72f0j75S-feSW3I30Uenyua5JPWhe46hHU03qinX3Lxx1g66VaiWXcZpycNb50Wc4pvjy5P0NlLMuY1IZ2BRUXJ0iuPDip0jFUAQPDR4t85T04KcebAE2-DkOfMWI9fOanYUIBgcX1KWyipfXP6ljMNiag"/>
+            </div>
+            <h3 class="font-serif text-lg text-primary font-bold">Amber Royale Extrait</h3>
+            <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">Golden balsamic amber, labdanum resin, Spanish saffron, and sun-warmed cedarwood.</p>
+            <div class="bg-surface-container-low px-2 py-1 rounded flex items-center gap-1.5 border border-outline-variant/30 my-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              <span class="font-label-caps text-[10px] text-secondary font-semibold uppercase tracking-wider">Notes: Golden Amber • Saffron</span>
+            </div>
+          </div>
+          <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+            <span class="font-serif text-base text-primary font-bold">Rs. 2,850</span>
+            <button onclick="window.luxuryCart.addItem({id: 'amber-royale-50ml', title: 'Amber Royale Extrait', presentation: '50ml Flacon', price: 2850})" class="bg-primary hover:bg-on-primary-container text-on-primary font-label-caps text-xs uppercase tracking-widest px-4 py-2 rounded shadow-sm transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+              Acquire
+            </button>
+          </div>
+        </div>
+
+        <!-- The Grand Gourmand Trio Coffret (Wide 2-col) -->
+        <div class="bg-surface-container-lowest rounded border-2 border-primary-container/60 p-space-md shadow-md flex flex-col justify-between group hover:border-primary transition-all md:col-span-2 xl:col-span-3">
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center justify-between">
+              <span class="bg-primary text-on-primary font-label-caps text-[10px] uppercase tracking-widest px-2.5 py-1 rounded font-bold">The Collector's Coffret</span>
+              <span class="bg-secondary-container text-on-secondary-container font-label-caps text-[10px] uppercase tracking-widest px-2.5 py-1 rounded font-bold">SPECIAL SAVINGS 20%</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center my-space-xs">
+              <div class="md:col-span-4 h-48 bg-surface-container-low/70 rounded overflow-hidden flex items-center justify-center p-3 border border-outline-variant/30">
+                <img alt="Grand Gourmand Trio" class="object-contain h-40 w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1eD2R1rMIfV5devsEUYQOwtuSyd-RS9KdUxbhj3r937e9idL8Mp-I0JZfD2BnhG6wExvL3sAPAj6iW_fOgIwItPXAHJS4su_7TVbhYcygzdp0JOruLGg-k-bOFhF63lWqHk8dEGmUK3zu9meUUjHv9BOoMedbEq0vHcVsj6dkXHkKbGEN1ZHXtTzcg5jAqAKkoEcAR_MflqgoYWC9Cpp8Lg2et-RNgmvCKgzb0okU1g8M3_E_dVNJcw"/>
+              </div>
+              <div class="md:col-span-8 flex flex-col gap-1.5">
+                <h3 class="font-serif text-xl text-primary font-bold">The Grand Gourmand Trio Coffret</h3>
+                <p class="font-body-md text-xs text-on-surface-variant">Includes Honey Trap (50ml), Velvet Vanilla Oud (50ml), and Amber Royale (50ml). Presented in a velvet-lined gold foil embossed keepsake atelier vault.</p>
+                <div class="flex items-baseline gap-3 pt-2">
+                  <span class="font-serif text-2xl text-primary font-bold">Rs. 5,950</span>
+                  <span class="font-body-md text-xs text-outline line-through">Rs. 7,950</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-space-md pt-space-xs flex items-center justify-end border-t border-outline-variant/20">
+            <button onclick="window.luxuryCart.addItem({id: 'grand-gourmand-vault', title: 'Grand Gourmand Trio Coffret', presentation: '3 x 50ml Vault', price: 5950})" class="bg-primary hover:bg-on-primary-container text-on-primary font-label-caps text-xs uppercase tracking-widest px-6 py-2.5 rounded shadow-sm transition-all flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]">card_giftcard</span>
+              Acquire The Vault
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": []
+}
+{% endschema %}

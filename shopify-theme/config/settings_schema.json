@@ -1,0 +1,67 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Scents 'N Stories - Honey Trap Luxury Haute Parfumerie",
+    "theme_version": "1.0.0",
+    "theme_author": "Scents 'N Stories",
+    "theme_documentation_url": "https://github.com/Rizwansaeed61",
+    "theme_support_url": "https://github.com/Rizwansaeed61"
+  },
+  {
+    "name": "Brand Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Accent (Amber Gold)",
+        "default": "#845400"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Accent (Warm Cinnamon)",
+        "default": "#904c21"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background (Warm Ivory)",
+        "default": "#fbf9f5"
+      }
+    ]
+  },
+  {
+    "name": "Typography & Branding",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_subtitle",
+        "label": "Store Subtitle",
+        "default": "Luxury Artisanal Parfumerie"
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold (Rs.)",
+        "default": 1500
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram Link",
+        "default": "https://instagram.com"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook Link",
+        "default": "https://facebook.com"
+      }
+    ]
+  }
+]

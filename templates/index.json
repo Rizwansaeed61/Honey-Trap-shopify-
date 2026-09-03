@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "headline": "Indulge in Honey Trap",
+        "subheading": "The Golden Gourmand Elixir."
+      }
+    },
+    "fragrance_families": {
+      "type": "fragrance-families",
+      "settings": {}
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {}
+    },
+    "scent_pyramid": {
+      "type": "scent-pyramid",
+      "settings": {}
+    },
+    "art_of_extrait": {
+      "type": "art-of-extrait",
+      "settings": {}
+    },
+    "brand_guarantees": {
+      "type": "brand-guarantees",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "fragrance_families",
+    "featured_products",
+    "scent_pyramid",
+    "art_of_extrait",
+    "brand_guarantees",
+    "testimonials"
+  ]
+}

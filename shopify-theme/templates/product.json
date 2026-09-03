@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "art_of_extrait": {
+      "type": "art-of-extrait",
+      "settings": {}
+    },
+    "brand_guarantees": {
+      "type": "brand-guarantees",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "art_of_extrait",
+    "brand_guarantees",
+    "testimonials"
+  ]
+}

@@ -1,0 +1,87 @@
+<!-- Breadcrumb & Ambient Atelier Notice -->
+<div class="w-full bg-surface-container-low/60 border-b border-outline-variant/20 py-2.5">
+  <div class="max-w-7xl mx-auto px-gutter flex items-center justify-between text-xs text-on-surface-variant font-label-caps">
+    <nav class="flex items-center gap-1 text-outline">
+      <a class="hover:text-primary transition-colors" href="{{ routes.root_url }}">Home</a>
+      <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+      <a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}">Artisanal Catalog</a>
+      <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+      <span class="text-primary font-bold">Honey Trap &amp; Luxury Extraits</span>
+    </nav>
+    <div class="hidden sm:flex items-center gap-2 bg-surface-container-lowest px-3 py-1 rounded border border-outline-variant/30 text-[11px] text-primary">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+      <span class="tracking-widest uppercase font-semibold">Artisanal Reserve Batch 2025 • Hand-Poured Concentrations</span>
+    </div>
+  </div>
+</div>
+
+<!-- Luxury Hero Fragrance Showcase Banner -->
+<section class="w-full bg-surface-container-lowest border-b border-outline-variant/30 py-space-2xl relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-surface-container-low via-surface-container-lowest to-surface-container-low opacity-60 pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-gutter relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+      <!-- Left Hero Content -->
+      <div class="lg:col-span-7 flex flex-col gap-space-sm">
+        <div class="flex items-center gap-space-xs">
+          <span class="bg-primary text-on-primary font-label-caps text-[10px] uppercase tracking-widest px-2.5 py-1 rounded">Maison Flagship</span>
+          <span class="font-label-caps text-xs text-secondary font-bold tracking-widest uppercase flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-primary-container">hotel_class</span>
+            Award-Winning Gourmand Signature
+          </span>
+        </div>
+        <h1 class="font-serif text-4xl sm:text-5xl text-on-surface tracking-tight font-semibold">
+          The Artisanal Fragrance Collection
+        </h1>
+        <p class="font-body-lg text-on-surface-variant max-w-xl font-light leading-relaxed text-sm sm:text-base">
+          Immerse yourself in opulent formulations crafted with rare botanical essences and precious resins. From our iconic, decadent <span class="font-semibold text-primary">Honey Trap</span> to intoxicating woody ouds, each extrait leaves an unforgettable sillage.
+        </p>
+
+        <!-- Quick Scent Attributes Banner -->
+        <div class="flex flex-wrap items-center gap-space-md pt-2 border-t border-outline-variant/30 mt-2 text-on-surface-variant font-label-caps text-xs">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px] text-primary">verified</span>
+            <span>35% Pure Extrait Concentration</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+            <span>14+ Hours Lasting Sillage</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px] text-primary">cruelty_free</span>
+            <span>Ethically Sourced &amp; Handcrafted</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Hero Card: Featuring Honey Trap -->
+      <div class="lg:col-span-5 bg-gradient-to-b from-surface-container-low to-surface-container p-space-md rounded border border-outline-variant/40 shadow-sm flex items-center gap-space-md">
+        <div class="w-32 h-36 bg-surface-container-lowest rounded p-2 flex items-center justify-center shrink-0 border border-outline-variant/30">
+          <img alt="Honey Trap Extrait de Parfum Bottle by Scents 'N Stories" class="h-full w-full object-contain drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBk3gNnUVVpd5SY_p16bIlIiqsa9pKLAPx6Dp9Ci8HF5tJlCWKF7O-tDnypkCz8IWEVgLXekgIS_1fHXenddTkOe08CaZfvUJBARLydw4PSHU0WrZ3Wxhcp7am6SwZtNsBlFIH2wKC8BF-J_bQeyTEYKjWlC20Wei0Pb1C1lSv-1ZG7CRm-A8hbEDZNBsEYIOS-evvfRGW6wrVmulbCNu10QDaexa_YTgAOWUpF0umNAhEggNCetUTdQifKFWj1hPVQew"/>
+        </div>
+        <div class="flex flex-col justify-center">
+          <div class="flex items-center gap-1 text-primary-container">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="font-label-caps text-xs font-bold text-on-surface">4.9 / 5.0 (1,840+ Reviews)</span>
+          </div>
+          <h2 class="font-serif text-lg text-primary font-semibold">Honey Trap</h2>
+          <p class="font-body-md text-xs text-on-surface-variant line-clamp-2 mt-1">Raw Wild Honey, Tunisian Orange Blossom &amp; Ceylon Cinnamon Bark.</p>
+          <div class="mt-2 flex items-baseline gap-2">
+            <span class="font-serif text-primary font-bold text-base">Rs. 2,450</span>
+            <span class="font-label-caps text-[10px] text-secondary font-bold uppercase tracking-wider">Bestseller In Extrait</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Banner",
+  "presets": [
+    {
+      "name": "Collection Banner"
+    }
+  ]
+}
+{% endschema %}

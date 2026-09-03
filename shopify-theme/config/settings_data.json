@@ -1,0 +1,25 @@
+{
+  "current": {
+    "color_primary": "#845400",
+    "color_secondary": "#904c21",
+    "color_background": "#fbf9f5",
+    "store_subtitle": "Luxury Artisanal Parfumerie",
+    "free_shipping_threshold": 1500,
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "Complimentary Signature Discovery Vial on All Extrait de Parfum Orders | Handcrafted French Oils"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    }
+  }
+}

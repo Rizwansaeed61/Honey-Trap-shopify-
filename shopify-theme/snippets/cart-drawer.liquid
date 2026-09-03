@@ -1,0 +1,72 @@
+
+<!-- Luxury Cart Drawer Component -->
+<div id="cart-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] opacity-0 pointer-events-none transition-opacity duration-300" data-cart-close></div>
+
+<div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-surface-bright border-l border-outline-variant/40 shadow-2xl z-[101] transform translate-x-full transition-transform duration-350 flex flex-col justify-between">
+  <!-- Drawer Header -->
+  <div class="p-space-md border-b border-outline-variant/30 flex items-center justify-between bg-surface-container-low">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-[24px]">local_mall</span>
+      <div>
+        <h3 class="font-serif font-bold text-on-surface text-base">Your Velvet Pouch</h3>
+        <p class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider"><span class="cart-count-badge font-bold text-primary">1</span> Fragrance Selection</p>
+      </div>
+    </div>
+    <button data-cart-close class="w-8 h-8 rounded-full bg-surface-container-high text-outline hover:text-primary flex items-center justify-center transition-colors">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+  </div>
+
+  <!-- Free Shipping Progress Tracker -->
+  <div class="bg-surface-container-lowest px-space-md py-space-xs border-b border-outline-variant/20">
+    <div class="flex items-center justify-between text-[11px] font-label-caps text-on-surface-variant mb-1">
+      <span id="free-shipping-message">Add <span class="font-bold text-primary">Rs. 0</span> more for Complimentary Delivery</span>
+      <span class="material-symbols-outlined text-primary text-[16px]">local_shipping</span>
+    </div>
+    <div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+      <div id="free-shipping-progress" class="h-full bg-gradient-to-r from-primary to-primary-container transition-all duration-500" style="width: 100%"></div>
+    </div>
+  </div>
+
+  <!-- Cart Items List Container -->
+  <div class="flex-1 overflow-y-auto p-space-md space-y-3" id="cart-items-container">
+    <!-- Rendered dynamically by LuxuryCartManager -->
+  </div>
+
+  <!-- Empty State (Hidden when items exist) -->
+  <div id="cart-empty-state" class="hidden flex-1 flex flex-col items-center justify-center p-space-lg text-center gap-2">
+    <div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-primary mb-2">
+      <span class="material-symbols-outlined text-[32px]">local_florist</span>
+    </div>
+    <h4 class="font-serif font-bold text-lg text-on-surface">Your Pouch is Empty</h4>
+    <p class="font-body-md text-xs text-on-surface-variant max-w-xs">Indulge in our flagship masterpiece, Honey Trap Extrait de Parfum, or explore our discovery sets.</p>
+    <a href="shop.html" class="mt-4 inline-block bg-primary text-on-primary px-space-lg py-2 rounded-full font-label-caps text-xs uppercase tracking-widest">Explore Catalog</a>
+  </div>
+
+  <!-- Drawer Footer -->
+  <div id="cart-drawer-footer" class="p-space-md border-t border-outline-variant/30 bg-surface-container-lowest space-y-space-sm">
+    <div class="space-y-1">
+      <div class="flex justify-between items-baseline font-body-md text-xs text-on-surface-variant">
+        <span>Subtotal</span>
+        <span id="cart-drawer-subtotal" class="font-serif font-bold text-base text-primary">Rs. 2,450</span>
+      </div>
+      <div class="flex justify-between text-[11px] text-tertiary">
+        <span>Shipping & Taxes</span>
+        <span class="text-primary font-semibold">Complimentary</span>
+      </div>
+    </div>
+
+    <button onclick="alert('Proceeding to Luxury Secure Checkout (Rs. ' + window.luxuryCart.getSubtotal().toLocaleString('en-PK') + ')')" class="w-full py-space-sm rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-caps text-xs tracking-[0.18em] uppercase font-bold shadow-lg hover:opacity-95 transition-all flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-[18px]">lock</span>
+      <span>Checkout Securely</span>
+    </button>
+
+    <div class="flex items-center justify-center gap-3 text-[10px] font-label-caps text-outline text-center pt-1">
+      <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-primary">verified</span> 35% Extrait Oil</span>
+      <span>•</span>
+      <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-primary">award_star</span> IFRA Certified</span>
+      <span>•</span>
+      <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-primary">local_shipping</span> Express Dispatch</span>
+    </div>
+  </div>
+</div>

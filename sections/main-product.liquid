@@ -1,0 +1,442 @@
+<div class="max-w-7xl mx-auto px-gutter py-space-md w-full">
+  <!-- 1. Breadcrumbs & Fragrance Profile Badges -->
+  <div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-lg">
+    <nav class="flex items-center gap-space-xs font-body-md text-xs text-on-surface-variant">
+      <a class="hover:text-primary transition-colors" href="{{ routes.root_url }}">Home</a>
+      <span class="material-symbols-outlined text-[13px] text-outline">chevron_right</span>
+      <a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}">Luxury Fragrances</a>
+      <span class="material-symbols-outlined text-[13px] text-outline">chevron_right</span>
+      <span class="text-primary font-semibold">{{ product.title | default: "Honey Trap" }}</span>
+    </nav>
+    <div class="flex items-center gap-space-xs flex-wrap">
+      <span class="px-space-sm py-space-2xs rounded-full font-label-caps text-[10px] bg-primary-fixed/40 text-on-primary-container border border-primary/20">
+        Gourmand
+      </span>
+      <span class="px-space-sm py-space-2xs rounded-full font-label-caps text-[10px] bg-secondary-fixed/50 text-secondary border border-secondary/20">
+        Warm Spicy
+      </span>
+      <span class="px-space-sm py-space-2xs rounded-full font-label-caps text-[10px] bg-tertiary-fixed/60 text-on-tertiary-container border border-tertiary/20">
+        Floral Amber
+      </span>
+      <span class="px-space-sm py-space-2xs rounded-full font-label-caps text-[10px] bg-surface-container-high text-on-surface-variant">
+        Unisex Extrait
+      </span>
+    </div>
+  </div>
+
+  <!-- Main PDP Grid Layout -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+    <!-- Left Column: Visual Showcase & Olfactory Notes Gallery -->
+    <div class="lg:col-span-7 flex flex-col gap-space-md sticky top-28">
+      <div class="relative bg-surface-container-lowest rounded-xl p-space-lg sm:p-space-xl border border-outline-variant/40 shadow-sm flex flex-col items-center justify-center overflow-hidden min-h-[500px]">
+        <div class="absolute top-space-md left-space-md flex flex-col gap-space-2xs z-10">
+          <span class="bg-primary text-on-primary font-label-caps text-[10px] px-space-sm py-1 rounded-full uppercase tracking-widest shadow-sm">
+            Artisanal Masterpiece
+          </span>
+          <span class="bg-secondary-container text-on-secondary-container font-label-caps text-[10px] px-space-sm py-1 rounded-full border border-secondary/20">
+            12+ Hours Sillage
+          </span>
+        </div>
+        <div class="absolute top-space-md right-space-md">
+          <button class="w-9 h-9 rounded-full bg-surface-container-low border border-outline-variant/50 flex items-center justify-center text-outline hover:text-secondary hover:bg-surface-bright transition-all shadow-xs" title="Save to Fragrance Wardrobe">
+            <span class="material-symbols-outlined text-[20px]">favorite</span>
+          </button>
+        </div>
+        <img 
+          alt="{{ product.title | default: 'Honey Trap Eau De Parfum Bottle' }}" 
+          class="max-h-[420px] w-auto object-contain transition-all duration-300 drop-shadow-[0_15px_25px_rgba(132,84,0,0.18)]" 
+          id="main-product-image" 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYapaf1GXJUtrfPx2QOZHfNYaPSVhf38bD8toHMqtN7akXWYrdemQ-d-9U5b0Pemapq_yIEL1LI8aI1LjT2qCULxoGlwU4K9e0sSfiSKcpW31UQ0PJpc2oaqndxLUPZ9dqoJZJVlPH2nrxqQRE_Qmrht_AaBuyGa-7u_DlkWVqIOeb9e3sX6Sp5uJW2afLRAm2DTYG3Nm0OoNTIMeLcz4I2rGMVQp4J8iAmIToor1VaW3jFq8aRVKdIkcgPr4rv8q8858"
+        />
+        
+        <!-- Fragrance Impression Quote -->
+        <div class="w-full mt-space-md bg-surface-container-low/90 border border-outline-variant/50 rounded-full py-space-xs px-space-md flex items-center justify-center gap-space-xs text-secondary text-center shadow-xs">
+          <span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+          <span class="font-label-sm tracking-normal font-medium text-on-surface-variant italic">"An intoxicating, decadent symphony of warm honey, melted spiced chocolate &amp; velvet orange blossom."</span>
+        </div>
+      </div>
+
+      <!-- Thumbnail Carousel / Olfactory Exploration -->
+      <div class="grid grid-cols-4 gap-space-sm">
+        <button class="thumb-btn bg-surface-container-lowest rounded-lg p-space-2xs border-2 border-primary shadow-sm transition-all flex flex-col items-center" onclick="switchImage(0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYapaf1GXJUtrfPx2QOZHfNYaPSVhf38bD8toHMqtN7akXWYrdemQ-d-9U5b0Pemapq_yIEL1LI8aI1LjT2qCULxoGlwU4K9e0sSfiSKcpW31UQ0PJpc2oaqndxLUPZ9dqoJZJVlPH2nrxqQRE_Qmrht_AaBuyGa-7u_DlkWVqIOeb9e3sX6Sp5uJW2afLRAm2DTYG3Nm0OoNTIMeLcz4I2rGMVQp4J8iAmIToor1VaW3jFq8aRVKdIkcgPr4rv8q8858')">
+          <img alt="Honey Trap Bottle View" class="h-20 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUpHpmddYhhoFppXue_9AEqBMKLegRN4jRVscKsx_xa0m8RTt2aHqaOxs2TMD4t1UQg2n8u9V859bhVou3rtigiNEoIbTFXUSVOUOcrTBx28pBRAnLZgSGzDgJK5knK2yVodqY9VQ3Yu9SDlcCQGO6Ub7w1iBY1bF_WnSWyEd1muI8jtHnyBh5V4X6e-GIqHaXxO-RDhOcak2nkqa7JhygOsZ88im4Sd6Nz_1ILw_26gzXmmx9BSdQfZtMlfJw1mtpAFY"/>
+          <span class="font-label-caps text-[10px] text-primary mt-1 font-semibold">The Flacon</span>
+        </button>
+        <div class="bg-surface-container-lowest rounded-lg p-space-2xs border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center text-center group cursor-pointer hover:border-primary transition-all">
+          <span class="material-symbols-outlined text-primary text-[26px]">hive</span>
+          <span class="font-label-caps text-[10px] text-on-surface-variant group-hover:text-primary mt-1 font-semibold">Honeycomb</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-lg p-space-2xs border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center text-center group cursor-pointer hover:border-primary transition-all">
+          <span class="material-symbols-outlined text-secondary text-[26px]">cookie</span>
+          <span class="font-label-caps text-[10px] text-on-surface-variant group-hover:text-secondary mt-1 font-semibold">Spiced Truffle</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-lg p-space-2xs border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center text-center group cursor-pointer hover:border-primary transition-all">
+          <span class="material-symbols-outlined text-primary-container text-[26px]">water_drop</span>
+          <span class="font-label-caps text-[10px] text-on-surface-variant group-hover:text-primary-container mt-1 font-semibold">Pure Extrait</span>
+        </div>
+      </div>
+
+      <!-- Olfactory Performance Stats Bar -->
+      <div class="bg-surface-container-low border border-outline-variant/40 rounded-xl p-space-md flex items-center justify-around text-center mt-space-xs">
+        <div class="flex flex-col items-center">
+          <span class="font-serif font-bold text-primary text-base">12+ Hours</span>
+          <span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Longevity</span>
+        </div>
+        <div class="h-8 w-px bg-outline-variant/40"></div>
+        <div class="flex flex-col items-center">
+          <span class="font-serif font-bold text-primary text-base">Intense 6ft</span>
+          <span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sillage &amp; Projection</span>
+        </div>
+        <div class="h-8 w-px bg-outline-variant/40"></div>
+        <div class="flex flex-col items-center">
+          <span class="font-serif font-bold text-secondary text-base">35% Concentration</span>
+          <span class="font-label-caps text-[10px] text-on-surface-variant uppercase">French Fragrance Oils</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Product Intelligence, Purchase & Routine Stack -->
+    <div class="lg:col-span-5 flex flex-col gap-space-lg">
+      <!-- Title & Rating Summary -->
+      <div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm flex flex-col gap-space-xs">
+        <span class="font-label-caps text-[11px] text-secondary tracking-[0.2em] uppercase font-semibold">Scents 'N Stories • Haute Perfumery</span>
+        <h1 class="font-serif text-3xl sm:text-4xl text-on-surface font-bold tracking-tight mt-1">{{ product.title | default: "Honey Trap" }}</h1>
+        <p class="font-body-md text-on-surface-variant leading-relaxed text-xs sm:text-sm">
+          An enchanting gourmand floral fragrance featuring succulent golden honey, delicate orange blossom, sweet caramel chocolate truffle, and warm spiced Ceylon cinnamon. Long-lasting luxury sillage.
+        </p>
+
+        <div class="flex items-center gap-space-xs mt-space-xs flex-wrap">
+          <div class="flex items-center text-primary-container">
+            {% for i in (1..5) %}
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            {% endfor %}
+          </div>
+          <span class="font-label-sm font-bold text-on-surface ml-space-2xs">4.9</span>
+          <a class="font-label-sm text-primary underline underline-offset-4 decoration-primary/40 hover:text-primary-container" href="#reviews-section">1,450+ Verified Reviews</a>
+          <span class="text-outline text-[12px]">•</span>
+          <span class="font-label-caps text-[10px] text-secondary uppercase font-semibold tracking-wider">Top Rated Unisex</span>
+        </div>
+
+        <!-- Pricing Display -->
+        <div class="mt-space-sm pt-space-xs border-t border-outline-variant/30 flex items-baseline gap-space-xs">
+          <span class="font-serif text-primary font-bold text-3xl sm:text-4xl" id="active-price-text">Rs. 2,450</span>
+          <span class="font-serif text-on-surface-variant text-base" id="active-vol-text">- 50ml Eau De Parfum</span>
+        </div>
+        <div class="flex items-center gap-space-2xs text-outline text-xs">
+          <span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+          <span>Tax inclusive. Handcrafted &amp; aged for optimal olfactory depth.</span>
+        </div>
+      </div>
+
+      <!-- Size Selection Options -->
+      <div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm flex flex-col gap-space-sm">
+        <div class="flex items-center justify-between">
+          <span class="font-label-caps text-xs uppercase tracking-wider text-on-surface font-semibold">Select Presentation:</span>
+          <a href="#panel-how-to-use" class="font-label-sm text-primary cursor-pointer hover:underline text-xs">Flacon &amp; Sillage Guide</a>
+        </div>
+        <div class="grid grid-cols-3 gap-space-xs sm:gap-space-sm">
+          <!-- Option 1: 50ml Standard EDP -->
+          <label class="size-card cursor-pointer rounded-lg p-space-sm bg-surface-container-low border-2 border-primary transition-all duration-200 flex flex-col justify-between relative shadow-xs" onclick="selectSize('50ml EDP', 2450, null, this)">
+            <div class="flex items-center justify-between w-full mb-space-xs">
+              <span class="radio-indicator w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                <span class="w-1.5 h-1.5 bg-on-primary rounded-full"></span>
+              </span>
+              <span class="font-label-caps text-[9px] text-primary font-bold uppercase">Signature</span>
+            </div>
+            <div>
+              <div class="font-serif text-on-surface text-sm font-semibold">50ml</div>
+              <div class="font-serif text-primary mt-0.5 text-xs font-bold">Rs. 2,450</div>
+            </div>
+          </label>
+
+          <!-- Option 2: 100ml Luxury Flacon -->
+          <label class="size-card cursor-pointer rounded-lg p-space-sm bg-surface-container-lowest border border-outline-variant/50 hover:bg-surface-container-low transition-all duration-200 flex flex-col justify-between relative shadow-xs" onclick="selectSize('100ml Flacon', 3950, 4650, this)">
+            <div class="absolute -top-2.5 right-1.5 bg-secondary text-on-secondary text-[9px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              15% Off
+            </div>
+            <div class="flex items-center justify-between w-full mb-space-xs">
+              <span class="radio-indicator w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center"></span>
+              <span class="font-label-caps text-[9px] text-secondary font-bold uppercase">Grand</span>
+            </div>
+            <div>
+              <div class="font-serif text-on-surface text-sm font-semibold">100ml</div>
+              <div class="flex flex-col mt-0.5">
+                <span class="font-serif text-primary text-xs font-bold">Rs. 3,950</span>
+                <span class="text-[10px] line-through text-outline">Rs. 4,650</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- Option 3: 10ml Travel Atomizer -->
+          <label class="size-card cursor-pointer rounded-lg p-space-sm bg-surface-container-lowest border border-outline-variant/50 hover:bg-surface-container-low transition-all duration-200 flex flex-col justify-between relative shadow-xs" onclick="selectSize('10ml Pocket', 850, null, this)">
+            <div class="flex items-center justify-between w-full mb-space-xs">
+              <span class="radio-indicator w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center"></span>
+              <span class="font-label-caps text-[9px] text-on-surface-variant font-bold uppercase">Pocket</span>
+            </div>
+            <div>
+              <div class="font-serif text-on-surface text-sm font-semibold">10ml</div>
+              <div class="font-serif text-primary mt-0.5 text-xs font-bold">Rs. 850</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Action CTA & Delivery Info -->
+      <div class="flex flex-col gap-space-xs">
+        <button class="w-full py-space-md px-space-xl rounded-full text-on-primary font-label-caps tracking-[0.18em] text-center shadow-lg hover:shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-space-xs uppercase text-xs sm:text-sm font-semibold" id="main-atc-button" onclick="triggerAddToCartNotification()" style="background: linear-gradient(90deg, #845400 0%, #c98a2c 60%, #904c21 100%);">
+          <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+          <span>Add Honey Trap To Cart</span>
+          <span class="text-primary-fixed ml-space-2xs font-bold" id="cta-price-display">Rs. 2,450</span>
+        </button>
+        <div class="flex items-center justify-center gap-space-xs text-on-surface-variant font-body-md text-xs py-space-2xs flex-wrap">
+          <span class="material-symbols-outlined text-[16px] text-primary">local_shipping</span>
+          <span>Express 24-48 hr Dispatch Nationwide</span>
+          <span>•</span>
+          <span class="text-secondary font-semibold">Free Delivery Above Rs. 1,500</span>
+        </div>
+      </div>
+
+      <!-- COMPLETE YOUR ROUTINE / COLLECTION BUNDLE MODULE -->
+      <div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-md flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-secondary text-[22px]">auto_awesome</span>
+            <h2 class="font-label-caps text-xs uppercase tracking-wider text-on-surface font-semibold">Complete Honey Trap Wardrobe:</h2>
+          </div>
+          <span class="font-label-caps text-[10px] text-secondary bg-secondary-container/40 border border-secondary/20 px-space-xs py-1 rounded-full font-bold">
+            Bundle &amp; Save 15%
+          </span>
+        </div>
+
+        <!-- Step 01: Core Perfume -->
+        <div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm border border-outline-variant/30 relative">
+          <div class="absolute top-space-xs right-space-xs bg-primary text-on-primary font-label-caps text-[9px] px-2 py-0.5 rounded-full uppercase">
+            Step 01
+          </div>
+          <img alt="Honey Trap Miniature" class="w-16 h-16 object-contain rounded-lg bg-surface-container-lowest p-space-2xs border border-outline-variant/30 flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYgsab-Y14NBhqCbuiWICPtXRTEMZlP1VUOWIdzqQVW7PD9o1ykVgIGAVicBFvwDoRQYFY3EhUgGe-cpfRLpsYfxd5X5k5YyorkNjCk0ykqed6QQUrV2r_1699HXXmY3IZCZwgtE7umdkEJQj9knDyT7LmkztFHeEI-UwL40KxnMWi-EEFn-qKXx5WEbmisLI8OpcX78_XtIGL-o9KUu_EZiHsfO8yP51P_4gMr86BkvV2o8MaqUDRhR1WYRJtGAoGMn0"/>
+          <div class="flex-1 min-w-0 pr-12">
+            <div class="flex items-center gap-space-2xs mb-1">
+              <span class="text-[9px] font-bold uppercase bg-primary-fixed/60 text-on-primary-fixed px-1.5 py-0.5 rounded font-label-caps">Signature</span>
+              <span class="text-[9px] font-bold uppercase bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-label-caps">50ml EDP</span>
+            </div>
+            <div class="font-serif text-on-surface font-semibold text-sm truncate">Honey Trap Eau De Parfum</div>
+            <div class="font-body-md text-[11px] text-outline truncate">Rich nectar, orange blossom &amp; warm cinnamon.</div>
+          </div>
+          <div class="flex flex-col items-end gap-space-2xs">
+            <input checked="" class="accent-primary w-4 h-4 rounded cursor-not-allowed" disabled="" type="checkbox"/>
+            <span class="font-serif text-primary font-semibold text-sm">Rs. 2,450</span>
+          </div>
+        </div>
+
+        <!-- Step 02: Hair Mist -->
+        <div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm border border-outline-variant/30 relative">
+          <div class="absolute top-space-xs right-space-xs bg-secondary text-on-secondary font-label-caps text-[9px] px-2 py-0.5 rounded-full uppercase">
+            Step 02
+          </div>
+          <div class="w-16 h-16 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-container border border-outline-variant/30 flex-shrink-0">
+            <span class="material-symbols-outlined text-[30px]">grain</span>
+          </div>
+          <div class="flex-1 min-w-0 pr-12">
+            <div class="flex items-center gap-space-2xs mb-1">
+              <span class="text-[9px] font-bold uppercase bg-secondary-container/60 text-on-secondary-container px-1.5 py-0.5 rounded font-label-caps">Hair Care</span>
+              <span class="text-[9px] font-bold uppercase bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-label-caps">50ml Mist</span>
+            </div>
+            <div class="font-serif text-on-surface font-semibold text-sm truncate">Honey Trap Silken Hair Mist</div>
+            <div class="font-body-md text-[11px] text-outline truncate">Argan oil infused, alcohol-free gentle sillage.</div>
+          </div>
+          <div class="flex flex-col items-end gap-space-2xs">
+            <input checked="" class="accent-primary w-4 h-4 rounded cursor-pointer" id="routine-step-2" onchange="updateRoutineTotal()" type="checkbox"/>
+            <span class="font-serif text-primary font-semibold text-sm">Rs. 1,150</span>
+          </div>
+        </div>
+
+        <!-- Step 03: Scented Body Butter -->
+        <div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm border border-outline-variant/30 relative">
+          <div class="absolute top-space-xs right-space-xs bg-tertiary text-on-tertiary font-label-caps text-[9px] px-2 py-0.5 rounded-full uppercase">
+            Step 03
+          </div>
+          <div class="w-16 h-16 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary border border-outline-variant/30 flex-shrink-0">
+            <span class="material-symbols-outlined text-[30px]">spa</span>
+          </div>
+          <div class="flex-1 min-w-0 pr-12">
+            <div class="flex items-center gap-space-2xs mb-1">
+              <span class="text-[9px] font-bold uppercase bg-tertiary-fixed/60 text-on-tertiary-container px-1.5 py-0.5 rounded font-label-caps">Body Ritual</span>
+              <span class="text-[9px] font-bold uppercase bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-label-caps">150g Jar</span>
+            </div>
+            <div class="font-serif text-on-surface font-semibold text-sm truncate">Velvet Honey Body Butter</div>
+            <div class="font-body-md text-[11px] text-outline truncate">Shea &amp; cocoa butter with warm amber notes.</div>
+          </div>
+          <div class="flex flex-col items-end gap-space-2xs">
+            <input class="accent-primary w-4 h-4 rounded cursor-pointer" id="routine-step-3" onchange="updateRoutineTotal()" type="checkbox"/>
+            <span class="font-serif text-primary font-semibold text-sm">Rs. 1,350</span>
+          </div>
+        </div>
+
+        <!-- Sticky Bundle Action Button -->
+        <button class="w-full bg-primary hover:bg-primary-container text-on-primary py-space-md px-space-lg rounded-full font-label-caps tracking-widest uppercase text-xs shadow-md transition-colors flex items-center justify-between font-semibold" id="routine-cta" onclick="addRoutineToCart()">
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[18px]">add_task</span>
+            <span id="routine-count-label">Add 2 Collection Items To Bag</span>
+          </span>
+          <span class="text-primary-fixed font-bold text-sm" id="routine-total-price">Rs. 3,600</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Fragrance Details Tabs -->
+  <div class="mt-space-2xl pt-space-xl flex flex-col gap-space-xl">
+    <div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm">
+      <div class="flex gap-space-md border-b border-outline-variant/30 pb-space-sm">
+        <button class="font-label-caps text-xs uppercase tracking-wider text-primary pb-space-2xs relative font-bold" id="tab-btn-ingredients" onclick="switchTab('ingredients')">
+          Olfactory Notes Pyramid
+          <span class="tab-indicator absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+        </button>
+        <button class="font-label-caps text-xs uppercase tracking-wider text-on-surface-variant pb-space-2xs relative" id="tab-btn-how-to-use" onclick="switchTab('how-to-use')">
+          Application &amp; Pulse Points
+          <span class="tab-indicator absolute bottom-0 left-0 w-full h-0.5 bg-transparent"></span>
+        </button>
+        <button class="font-label-caps text-xs uppercase tracking-wider text-on-surface-variant pb-space-2xs relative" id="tab-btn-clinical-data" onclick="switchTab('clinical-data')">
+          Artisanal Crafting &amp; Origin
+          <span class="tab-indicator absolute bottom-0 left-0 w-full h-0.5 bg-transparent"></span>
+        </button>
+      </div>
+
+      <!-- Fragrance Notes Pyramid Panel -->
+      <div class="tab-panel py-space-lg grid grid-cols-1 md:grid-cols-3 gap-space-lg" id="panel-ingredients">
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-outline-variant/30 flex flex-col gap-space-2xs">
+          <div class="flex items-center gap-space-xs text-secondary">
+            <span class="material-symbols-outlined text-[24px]">sunny</span>
+            <span class="font-label-caps text-[11px] uppercase tracking-wider font-semibold">Top Notes (0 - 30 Mins)</span>
+          </div>
+          <span class="font-serif font-bold text-primary text-base">Honeycomb &amp; Neroli</span>
+          <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">Lush bitter orange blossom infused with wild raw honeycomb syrup creating an intoxicating sweet floral greeting.</p>
+        </div>
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-outline-variant/30 flex flex-col gap-space-2xs">
+          <div class="flex items-center gap-space-xs text-secondary">
+            <span class="material-symbols-outlined text-[24px]">cookie</span>
+            <span class="font-label-caps text-[11px] uppercase tracking-wider font-semibold">Heart Notes (30m - 4 Hrs)</span>
+          </div>
+          <span class="font-serif font-bold text-primary text-base">Spiced Truffle &amp; Cinnamon</span>
+          <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">Dark cocoa chocolate truffle rolled in freshly ground Ceylon cinnamon bark and toasted almond shavings.</p>
+        </div>
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-outline-variant/30 flex flex-col gap-space-2xs">
+          <div class="flex items-center gap-space-xs text-secondary">
+            <span class="material-symbols-outlined text-[24px]">spa</span>
+            <span class="font-label-caps text-[11px] uppercase tracking-wider font-semibold">Base Notes (4 - 12+ Hrs)</span>
+          </div>
+          <span class="font-serif font-bold text-primary text-base">Golden Amber &amp; Vanilla</span>
+          <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">Velvety Venezuelan tonka bean, bourbon vanilla pods, and golden fossil amber that leaves an unforgettable sillage.</p>
+        </div>
+      </div>
+
+      <!-- Application Guide Panel -->
+      <div class="tab-panel py-space-lg hidden" id="panel-how-to-use">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+          <div class="flex items-start gap-space-sm p-space-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+            <span class="font-serif font-bold text-primary text-2xl">01</span>
+            <div>
+              <div class="font-label-caps text-xs text-on-surface font-semibold uppercase">Pulse Points</div>
+              <div class="font-body-md text-xs text-on-surface-variant mt-1 leading-relaxed">Spray behind the ears, collarbones, and inner wrists from 6 inches away. Heat amplifies honey chords.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-space-sm p-space-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+            <span class="font-serif font-bold text-primary text-2xl">02</span>
+            <div>
+              <div class="font-label-caps text-xs text-on-surface font-semibold uppercase">Do Not Rub</div>
+              <div class="font-body-md text-xs text-on-surface-variant mt-1 leading-relaxed">Never crush the scent molecules by rubbing wrists together. Allow the top notes to dry down naturally.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-space-sm p-space-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+            <span class="font-serif font-bold text-primary text-2xl">03</span>
+            <div>
+              <div class="font-label-caps text-xs text-on-surface font-semibold uppercase">Layer for Aura</div>
+              <div class="font-body-md text-xs text-on-surface-variant mt-1 leading-relaxed">Mist over damp hair or unscented moisturizer to trap the gourmand sillage for over 14 hours.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Artisanal Crafting Panel -->
+      <div class="tab-panel py-space-lg hidden" id="panel-clinical-data">
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-outline-variant/30">
+          <div class="font-serif font-bold text-primary mb-space-2xs text-lg">Grasse Heritage &amp; Artisanal Maceration</div>
+          <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+            Every bottle of Honey Trap is formulated with pure perfume oils sourced directly from historic distillation houses in Grasse, France. The formulation undergoes a 6-week dark cold maceration process, maturing the amber resin and natural vanilla crystals to achieve optimal richness, sillage radiance, and lasting skin adherence without harsh chemical stabilizers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm flex flex-col gap-space-lg" id="reviews-section">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+        <div>
+          <h2 class="font-serif font-bold text-2xl sm:text-3xl text-on-surface">Verified Customer Stories</h2>
+          <div class="flex items-center gap-space-2xs text-on-surface-variant font-body-md text-xs mt-1">
+            <span class="text-primary font-bold text-sm">4.9 / 5.0 Rating</span>
+            <span>•</span>
+            <span>Based on 1,450+ verified purchases</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-outline-variant/30 flex flex-col justify-between">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center text-primary-container">
+              {% for i in (1..5) %}
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              {% endfor %}
+            </div>
+            <div class="font-serif font-bold text-on-surface text-base">The compliments are unbelievable</div>
+            <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">"Honey Trap is pure seduction in a bottle. The warm cinnamon and rich chocolate truffle combined with sweet honey had three strangers ask me what perfume I was wearing."</p>
+          </div>
+          <div class="mt-space-md pt-space-xs border-t border-outline-variant/30 flex items-center justify-between font-label-caps text-[10px] text-outline">
+            <span class="text-on-surface font-bold">Ayla R.</span>
+            <span class="text-primary font-semibold">Verified Collector</span>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-outline-variant/30 flex flex-col justify-between">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center text-primary-container">
+              {% for i in (1..5) %}
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              {% endfor %}
+            </div>
+            <div class="font-serif font-bold text-on-surface text-base">Truly lasts past 12 hours</div>
+            <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">"Applied 4 sprays before an evening gala, and woke up the next morning still smelling the luxurious vanilla amber notes on my jacket. Outstanding longevity."</p>
+          </div>
+          <div class="mt-space-md pt-space-xs border-t border-outline-variant/30 flex items-center justify-between font-label-caps text-[10px] text-outline">
+            <span class="text-on-surface font-bold">Hamza M.</span>
+            <span class="text-primary font-semibold">Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-outline-variant/30 flex flex-col justify-between">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center text-primary-container">
+              {% for i in (1..5) %}
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              {% endfor %}
+            </div>
+            <div class="font-serif font-bold text-on-surface text-base">Best gourmand in my wardrobe</div>
+            <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">"Upgraded to the 100ml grand flacon after testing the 10ml travel roll-on. The balance of floral orange blossom prevents it from feeling cloying. True artisan craft."</p>
+          </div>
+          <div class="mt-space-md pt-space-xs border-t border-outline-variant/30 flex items-center justify-between font-label-caps text-[10px] text-outline">
+            <span class="text-on-surface font-bold">Sana Z.</span>
+            <span class="text-primary font-semibold">Verified Buyer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "settings": []
+}
+{% endschema %}

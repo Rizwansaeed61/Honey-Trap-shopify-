@@ -1,0 +1,19 @@
+{
+  "general": {
+    "cart": {
+      "view": "View Cart",
+      "checkout": "Checkout",
+      "empty": "Your pouch is empty"
+    },
+    "continue_shopping": "Continue Exploring",
+    "search": "Search notes, e.g. Honey..."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Bag",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "in_stock": "In Stock"
+    }
+  }
+}

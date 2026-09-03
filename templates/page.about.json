@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "art_of_extrait": {
+      "type": "art-of-extrait",
+      "settings": {}
+    },
+    "brand_guarantees": {
+      "type": "brand-guarantees",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "art_of_extrait",
+    "brand_guarantees"
+  ]
+}

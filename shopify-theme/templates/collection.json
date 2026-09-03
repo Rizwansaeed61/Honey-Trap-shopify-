@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "quiz_banner": {
+      "type": "scent-quiz-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "quiz_banner"
+  ]
+}

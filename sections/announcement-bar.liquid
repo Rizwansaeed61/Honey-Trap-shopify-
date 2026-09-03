@@ -1,0 +1,18 @@
+<div class="bg-primary text-on-primary py-space-xs px-gutter text-center font-label-caps tracking-[0.2em] flex items-center justify-center gap-space-xs border-b border-primary-container/30 text-xs">
+  <span class="material-symbols-outlined text-[15px] text-primary-fixed">auto_awesome</span>
+  <span>{{ section.settings.text | default: "Complimentary Signature Discovery Vial on All Extrait de Parfum Orders | Handcrafted French Oils" }}</span>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement Text",
+      "default": "Complimentary Signature Discovery Vial on All Extrait de Parfum Orders | Handcrafted French Oils"
+    }
+  ]
+}
+{% endschema %}

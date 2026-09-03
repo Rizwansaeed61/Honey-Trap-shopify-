@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "brand_guarantees": {
+      "type": "brand-guarantees",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "brand_guarantees"
+  ]
+}
