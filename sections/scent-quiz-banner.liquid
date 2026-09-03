@@ -3,48 +3,64 @@
     <!-- Banner Card -->
     <div class="bg-gradient-to-r from-primary via-primary-container to-secondary text-on-primary rounded p-space-xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-space-xl relative overflow-hidden">
       <div class="flex flex-col gap-2 max-w-xl text-center md:text-left z-10">
-        <span class="bg-secondary-container text-on-secondary-container font-label-caps text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded self-center md:self-start font-bold">Interactive Scent Consultation</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold">Uncover Your Olfactory Scent Identity</h2>
+        {% if section.settings.badge_text != blank %}
+          <span class="bg-secondary-container text-on-secondary-container font-label-caps text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded self-center md:self-start font-bold">{{ section.settings.badge_text }}</span>
+        {% endif %}
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold">{{ section.settings.heading | default: "Uncover Your Olfactory Scent Identity" }}</h2>
         <p class="font-body-md text-sm text-primary-fixed leading-relaxed font-light">
-          Answer 5 evocative questions regarding your taste, favorite ambient moments, and mood. Receive your customized perfume discovery set pairing.
+          {{ section.settings.description | default: "Answer 5 evocative questions regarding your taste, favorite ambient moments, and mood. Receive your customized perfume discovery set pairing." }}
         </p>
       </div>
-      <a class="z-10 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container font-label-caps text-xs uppercase tracking-widest px-space-xl py-3 rounded-full transition-all shadow flex items-center gap-2 shrink-0 font-bold" href="#">
-        Take 60-Second Scent Quiz
-        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-      </a>
+      {% if section.settings.button_label != blank %}
+        <a class="z-10 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container font-label-caps text-xs uppercase tracking-widest px-space-xl py-3 rounded-full transition-all shadow flex items-center gap-2 shrink-0 font-bold" href="{{ section.settings.button_link | default: '#' }}">
+          {{ section.settings.button_label }}
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      {% endif %}
     </div>
 
-    <!-- 4 Luxury Pillars -->
+    <!-- Luxury Pillars -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
-      <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
-        <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-[24px]">verified</span>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2" {{ block.shopify_attributes }}>
+            <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-[24px]">{{ block.settings.icon | default: "verified" }}</span>
+            </div>
+            <h4 class="font-serif font-bold text-base text-primary">{{ block.settings.title }}</h4>
+            <p class="font-body-md text-xs text-on-surface-variant">{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
+          <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[24px]">verified</span>
+          </div>
+          <h4 class="font-serif font-bold text-base text-primary">35% Extrait Oil</h4>
+          <p class="font-body-md text-xs text-on-surface-variant">Exceptional longevity with high-density pure French fragrance essences.</p>
         </div>
-        <h4 class="font-serif font-bold text-base text-primary">35% Extrait Oil</h4>
-        <p class="font-body-md text-xs text-on-surface-variant">Exceptional longevity with high-density pure French fragrance essences.</p>
-      </div>
-      <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
-        <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-[24px]">spa</span>
+        <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
+          <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[24px]">spa</span>
+          </div>
+          <h4 class="font-serif font-bold text-base text-primary">Rare Scent Notes</h4>
+          <p class="font-body-md text-xs text-on-surface-variant">Natural wild honey, Madagascar vanilla beans, and wild orange blossoms.</p>
         </div>
-        <h4 class="font-serif font-bold text-base text-primary">Rare Scent Notes</h4>
-        <p class="font-body-md text-xs text-on-surface-variant">Natural wild honey, Madagascar vanilla beans, and wild orange blossoms.</p>
-      </div>
-      <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
-        <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-[24px]">redeem</span>
+        <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
+          <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[24px]">redeem</span>
+          </div>
+          <h4 class="font-serif font-bold text-base text-primary">Luxury Gift Boxing</h4>
+          <p class="font-body-md text-xs text-on-surface-variant">Every flacon is enveloped in satin and gold-embossed keepsake presentation.</p>
         </div>
-        <h4 class="font-serif font-bold text-base text-primary">Luxury Gift Boxing</h4>
-        <p class="font-body-md text-xs text-on-surface-variant">Every flacon is enveloped in satin and gold-embossed keepsake presentation.</p>
-      </div>
-      <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
-        <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+        <div class="bg-surface-container-lowest p-space-md rounded border border-outline-variant/30 shadow-sm flex flex-col items-center text-center gap-2">
+          <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+          </div>
+          <h4 class="font-serif font-bold text-base text-primary">Complimentary Shipping</h4>
+          <p class="font-body-md text-xs text-on-surface-variant">Fast, secure courier dispatch with temperature-controlled transit packaging.</p>
         </div>
-        <h4 class="font-serif font-bold text-base text-primary">Complimentary Shipping</h4>
-        <p class="font-body-md text-xs text-on-surface-variant">Fast, secure courier dispatch with temperature-controlled transit packaging.</p>
-      </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -52,9 +68,101 @@
 {% schema %}
 {
   "name": "Scent Quiz Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Top Badge Text",
+      "default": "Interactive Scent Consultation"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Uncover Your Olfactory Scent Identity"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Answer 5 evocative questions regarding your taste, favorite ambient moments, and mood. Receive your customized perfume discovery set pairing."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Take 60-Second Scent Quiz"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Luxury Guarantee Pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Material Icon Name",
+          "default": "verified",
+          "info": "e.g. verified, spa, redeem, local_shipping, auto_awesome"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Pillar Title",
+          "default": "35% Extrait Oil"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Pillar Description",
+          "default": "Exceptional longevity with high-density pure French fragrance essences."
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Scent Quiz Banner"
+      "name": "Scent Quiz Banner",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "verified",
+            "title": "35% Extrait Oil",
+            "description": "Exceptional longevity with high-density pure French fragrance essences."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "spa",
+            "title": "Rare Scent Notes",
+            "description": "Natural wild honey, Madagascar vanilla beans, and wild orange blossoms."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "redeem",
+            "title": "Luxury Gift Boxing",
+            "description": "Every flacon is enveloped in satin and gold-embossed keepsake presentation."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "local_shipping",
+            "title": "Complimentary Shipping",
+            "description": "Fast, secure courier dispatch with temperature-controlled transit packaging."
+          }
+        }
+      ]
     }
   ]
 }

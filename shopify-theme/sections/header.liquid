@@ -1,56 +1,74 @@
-<header class="sticky top-0 w-full z-50 shadow-[0_4px_24px_rgba(40,20,5,0.06)]">
+<header class="{% if section.settings.sticky_header %}sticky top-0{% else %}relative{% endif %} w-full z-50 shadow-[0_4px_24px_rgba(40,20,5,0.06)]">
   <div class="bg-surface-bright/95 backdrop-blur-md border-b border-outline-variant/40">
     <div class="h-24 max-w-7xl mx-auto px-gutter flex flex-col justify-between py-space-xs">
       <div class="flex items-center justify-between gap-space-lg">
         <a href="{{ routes.root_url }}" class="flex items-center gap-space-sm group">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center shadow-md">
-            <span class="font-headline-sm text-surface-bright italic font-serif">S</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-serif text-lg text-primary tracking-wide font-semibold">Scents 'N Stories</span>
-            <span class="font-label-caps text-[9px] text-tertiary tracking-[0.25em] uppercase -mt-1">Luxury Artisanal Parfumerie</span>
-          </div>
+          {% if section.settings.logo_image != blank %}
+            <img src="{{ section.settings.logo_image | image_url: width: 120 }}" alt="{{ shop.name }}" class="object-contain" style="max-width: {{ section.settings.logo_width }}px; height: auto;">
+          {% else %}
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center shadow-md">
+              <span class="font-headline-sm text-surface-bright italic font-serif">{{ section.settings.logo_letter | default: "S" }}</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-serif text-lg text-primary tracking-wide font-semibold">{{ section.settings.logo_text | default: shop.name }}</span>
+              <span class="font-label-caps text-[9px] text-tertiary tracking-[0.25em] uppercase -mt-1">{{ section.settings.logo_tagline | default: "Luxury Artisanal Parfumerie" }}</span>
+            </div>
+          {% endif %}
         </a>
 
         <!-- Search Bar -->
-        <div class="flex-1 max-w-md hidden md:block">
-          <form action="{{ routes.search_url }}" method="get" role="search" class="relative flex items-center w-full">
-            <span class="material-symbols-outlined absolute left-space-sm text-outline text-[18px]">search</span>
-            <input 
-              type="search" 
-              name="q" 
-              value="{{ search.terms | escape }}"
-              class="w-full bg-surface-container-low pl-10 pr-space-md py-space-xs rounded-full font-body-md text-on-surface placeholder:text-outline border border-outline-variant/60 focus:outline-none focus:border-primary text-xs" 
-              placeholder="Search Honey Trap, amber notes, extrait..."
-            />
-          </form>
-        </div>
+        {% if section.settings.show_search %}
+          <div class="flex-1 max-w-md hidden md:block">
+            <form action="{{ routes.search_url }}" method="get" role="search" class="relative flex items-center w-full">
+              <span class="material-symbols-outlined absolute left-space-sm text-outline text-[18px]">search</span>
+              <input 
+                type="search" 
+                name="q" 
+                value="{{ search.terms | escape }}"
+                class="w-full bg-surface-container-low pl-10 pr-space-md py-space-xs rounded-full font-body-md text-on-surface placeholder:text-outline border border-outline-variant/60 focus:outline-none focus:border-primary text-xs" 
+                placeholder="{{ section.settings.search_placeholder | default: 'Search Honey Trap, amber notes, extrait...' }}"
+              />
+            </form>
+          </div>
+        {% endif %}
 
         <!-- User Actions & Cart Trigger -->
         <div class="flex items-center gap-space-md">
-          <a href="#notes-pyramid" class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[20px]">science</span>
-            <span class="font-label-caps text-[11px] hidden sm:inline">Scent Notes</span>
-          </a>
+          {% if section.settings.show_notes_link %}
+            <a href="{{ section.settings.notes_link | default: '#notes-pyramid' }}" class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors">
+              <span class="material-symbols-outlined text-[20px]">science</span>
+              <span class="font-label-caps text-[11px] hidden sm:inline">{{ section.settings.notes_label | default: "Scent Notes" }}</span>
+            </a>
+          {% endif %}
           <button data-cart-trigger aria-label="View Cart" class="relative flex items-center cursor-pointer text-on-surface-variant hover:text-primary p-1">
             <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
             <span class="cart-count-badge absolute -top-1.5 -right-1.5 bg-primary text-on-primary font-label-caps rounded-full w-4 h-4 flex items-center justify-center text-[9px]">{{ cart.item_count | default: 1 }}</span>
           </button>
-          <a href="{{ routes.account_url | default: '#' }}" class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-primary">
-            <span class="material-symbols-outlined text-[18px]">person</span>
-          </a>
+          {% if section.settings.show_account %}
+            <a href="{{ routes.account_url | default: '#' }}" class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-primary" title="Account / VIP Concierge">
+              <span class="material-symbols-outlined text-[18px]">person</span>
+            </a>
+          {% endif %}
         </div>
       </div>
 
       <!-- Main Navigation Menu -->
       <nav class="flex items-center gap-space-md pb-space-2xs overflow-x-auto">
-        <a href="{{ routes.root_url }}" class="px-space-sm py-space-2xs font-label-caps text-primary border-b-2 border-primary font-semibold tracking-wider whitespace-nowrap text-xs">Home</a>
-        <a href="{{ routes.all_products_collection_url }}" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Bestsellers</a>
-        <a href="{{ routes.all_products_collection_url }}?filter=women" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Women</a>
-        <a href="{{ routes.all_products_collection_url }}?filter=men" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Men</a>
-        <a href="{{ routes.all_products_collection_url }}?filter=unisex" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Unisex</a>
-        <a href="#regimen" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Discovery Sets</a>
-        <a href="{{ routes.all_products_collection_url }}#quiz" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Scent Quiz</a>
+        {% if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 %}
+          {% for link in linklists[section.settings.menu].links %}
+            <a href="{{ link.url }}" class="px-space-sm py-space-2xs font-label-caps {% if link.active %}text-primary border-b-2 border-primary font-semibold{% else %}text-on-surface-variant hover:text-primary{% endif %} transition-colors tracking-wider whitespace-nowrap text-xs">
+              {{ link.title }}
+            </a>
+          {% endfor %}
+        {% else %}
+          <a href="{{ routes.root_url }}" class="px-space-sm py-space-2xs font-label-caps text-primary border-b-2 border-primary font-semibold tracking-wider whitespace-nowrap text-xs">Home</a>
+          <a href="{{ routes.all_products_collection_url }}" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Bestsellers</a>
+          <a href="{{ routes.all_products_collection_url }}?filter=women" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Women</a>
+          <a href="{{ routes.all_products_collection_url }}?filter=men" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Men</a>
+          <a href="{{ routes.all_products_collection_url }}?filter=unisex" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Unisex</a>
+          <a href="#regimen" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Discovery Sets</a>
+          <a href="{{ routes.all_products_collection_url }}#quiz" class="px-space-sm py-space-2xs font-label-caps text-on-surface-variant hover:text-primary transition-colors tracking-wider whitespace-nowrap text-xs">Scent Quiz</a>
+        {% endif %}
       </nav>
     </div>
   </div>
@@ -61,10 +79,84 @@
   "name": "Header",
   "settings": [
     {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Enable Sticky Header",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Custom Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 40,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Max Width",
+      "default": 140
+    },
+    {
+      "type": "text",
+      "id": "logo_letter",
+      "label": "Logo Monogram Letter",
+      "default": "S"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Brand Title",
+      "default": "Scents 'N Stories"
+    },
+    {
+      "type": "text",
+      "id": "logo_tagline",
+      "label": "Brand Tagline",
+      "default": "Luxury Artisanal Parfumerie"
+    },
+    {
       "type": "link_list",
       "id": "menu",
-      "label": "Menu",
+      "label": "Navigation Menu",
       "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show Search Input",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search Placeholder Text",
+      "default": "Search Honey Trap, amber notes, extrait..."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_notes_link",
+      "label": "Show Scent Notes Quick Link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "notes_label",
+      "label": "Scent Notes Label",
+      "default": "Scent Notes"
+    },
+    {
+      "type": "url",
+      "id": "notes_link",
+      "label": "Scent Notes Destination Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Show Account Icon",
+      "default": true
     }
   ]
 }

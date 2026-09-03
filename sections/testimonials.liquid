@@ -2,96 +2,131 @@
   <div class="max-w-7xl mx-auto px-gutter space-y-space-xl">
     <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-space-sm">
       <div>
-        <span class="font-label-caps uppercase tracking-[0.2em] text-primary text-xs font-semibold">Connoisseur Feedback</span>
-        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface mt-1 font-semibold">Scent Stories &amp; Testimonials</h2>
+        {% if section.settings.subtitle != blank %}
+          <span class="font-label-caps uppercase tracking-[0.2em] text-primary text-xs font-semibold">{{ section.settings.subtitle }}</span>
+        {% endif %}
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface mt-1 font-semibold">{{ section.settings.title | default: "Scent Stories & Testimonials" }}</h2>
       </div>
-      <a class="font-label-caps text-xs text-primary hover:text-secondary flex items-center gap-1 tracking-wider uppercase transition-colors font-bold" href="#">
-        Read All 2,850 Scent Reviews
-        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-      </a>
+      {% if section.settings.link_label != blank %}
+        <a class="font-label-caps text-xs text-primary hover:text-secondary flex items-center gap-1 tracking-wider uppercase transition-colors font-bold" href="{{ section.settings.link_url | default: '#' }}">
+          {{ section.settings.link_label }}
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      {% endif %}
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-      <!-- Review Card 1 -->
-      <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col justify-between space-y-space-md">
-        <div class="space-y-space-xs">
-          <div class="flex items-center gap-1 text-primary">
-            {% for i in (1..5) %}
-              <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-            {% endfor %}
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col justify-between space-y-space-md" {{ block.shopify_attributes }}>
+            <div class="space-y-space-xs">
+              <div class="flex items-center gap-1 text-primary">
+                {% assign stars = block.settings.rating | default: 5 %}
+                {% for i in (1..stars) %}
+                  <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                {% endfor %}
+              </div>
+              <h4 class="font-serif text-on-surface text-lg font-bold">{{ block.settings.review_title }}</h4>
+              <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
+                {{ block.settings.review_text }}
+              </p>
+            </div>
+            <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/20">
+              <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-sm">
+                {{ block.settings.author_initials | default: "SC" }}
+              </div>
+              <div>
+                <div class="font-label-caps text-on-surface text-xs font-semibold">{{ block.settings.author_name }}</div>
+                <div class="font-body-md text-primary text-[11px] flex items-center gap-0.5">
+                  <span class="material-symbols-outlined text-[13px]">verified</span>
+                  {{ block.settings.author_badge | default: "Verified Connoisseur" }}
+                </div>
+              </div>
+            </div>
           </div>
-          <h4 class="font-serif text-on-surface text-lg font-bold">"Honey Trap is an absolute intoxicating masterpiece"</h4>
-          <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
-            "The initial spray has this golden, nectarous honey warmth layered with fresh orange blossom. But once the spiced truffle drydown kicks in after an hour, strangers literally stop me to ask what fragrance I am wearing."
-          </p>
-        </div>
-        <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/20">
-          <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-sm">
-            MS
+        {% endfor %}
+      {% else %}
+        <!-- Default Testimonial 1 -->
+        <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col justify-between space-y-space-md">
+          <div class="space-y-space-xs">
+            <div class="flex items-center gap-1 text-primary">
+              {% for i in (1..5) %}
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              {% endfor %}
+            </div>
+            <h4 class="font-serif text-on-surface text-lg font-bold">"Honey Trap is an absolute intoxicating masterpiece"</h4>
+            <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
+              "The initial spray has this golden, nectarous honey warmth layered with fresh orange blossom. But once the spiced truffle drydown kicks in after an hour, strangers literally stop me to ask what fragrance I am wearing."
+            </p>
           </div>
-          <div>
-            <div class="font-label-caps text-on-surface text-xs font-semibold">Malika Sengupta</div>
-            <div class="font-body-md text-primary text-[11px] flex items-center gap-0.5">
-              <span class="material-symbols-outlined text-[13px]">verified</span>
-              Verified Collector • Mumbai
+          <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/20">
+            <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-sm">
+              MS
+            </div>
+            <div>
+              <div class="font-label-caps text-on-surface text-xs font-semibold">Malika Sengupta</div>
+              <div class="font-body-md text-primary text-[11px] flex items-center gap-0.5">
+                <span class="material-symbols-outlined text-[13px]">verified</span>
+                Verified Collector • Karachi
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Review Card 2 -->
-      <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col justify-between space-y-space-md">
-        <div class="space-y-space-xs">
-          <div class="flex items-center gap-1 text-primary">
-            {% for i in (1..5) %}
-              <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-            {% endfor %}
+        <!-- Default Testimonial 2 -->
+        <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col justify-between space-y-space-md">
+          <div class="space-y-space-xs">
+            <div class="flex items-center gap-1 text-primary">
+              {% for i in (1..5) %}
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              {% endfor %}
+            </div>
+            <h4 class="font-serif text-on-surface text-lg font-bold">"Rivals 400-Euro Parisian Niche Houses"</h4>
+            <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
+              "As a niche fragrance collector with over 70 bottles, I was skeptical of an Extrait at this price. But the oil density here is insane — two sprays on my collar survived a full evening gala and was still projecting next morning."
+            </p>
           </div>
-          <h4 class="font-serif text-on-surface text-lg font-bold">"Rivals 400-Euro Parisian Niche Houses"</h4>
-          <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
-            "As a fragrance reviewer for over 8 years, the 35% oil concentration in Honey Trap is palpable. It doesn't screech with alcohol. It sits like an invisible cashmere coat. Sillage lasted past 14 hours on my blazer."
-          </p>
-        </div>
-        <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/20">
-          <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-sm">
-            TA
-          </div>
-          <div>
-            <div class="font-label-caps text-on-surface text-xs font-semibold">Tariq Ansari</div>
-            <div class="font-body-md text-primary text-[11px] flex items-center gap-0.5">
-              <span class="material-symbols-outlined text-[13px]">verified</span>
-              Niche Fragrance Editor • Dubai
+          <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/20">
+            <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-sm">
+              TK
+            </div>
+            <div>
+              <div class="font-label-caps text-on-surface text-xs font-semibold">Taimoor Khan</div>
+              <div class="font-body-md text-primary text-[11px] flex items-center gap-0.5">
+                <span class="material-symbols-outlined text-[13px]">verified</span>
+                Fragrance Reviewer • Lahore
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Review Card 3 -->
-      <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col justify-between space-y-space-md">
-        <div class="space-y-space-xs">
-          <div class="flex items-center gap-1 text-primary">
-            {% for i in (1..5) %}
-              <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-            {% endfor %}
+        <!-- Default Testimonial 3 -->
+        <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col justify-between space-y-space-md">
+          <div class="space-y-space-xs">
+            <div class="flex items-center gap-1 text-primary">
+              {% for i in (1..5) %}
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              {% endfor %}
+            </div>
+            <h4 class="font-serif text-on-surface text-lg font-bold">"Pure Comfort &amp; Delicious Sillage"</h4>
+            <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
+              "I bought the discovery bundle with Honey Trap and Velvet Vanilla Oud. Layering them together is absolute magic. The customer service and velvet pouch packaging feel so opulent!"
+            </p>
           </div>
-          <h4 class="font-serif text-on-surface text-lg font-bold">"The Sweet Gourmand I’ve searched for years"</h4>
-          <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
-            "Most gourmands smell like cheap synthetic vanilla cake. Honey Trap is sophisticated, dark, woody, and honey-drenched with an erotic edge. My husband is completely obsessed with it."
-          </p>
-        </div>
-        <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/20">
-          <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-sm">
-            ZA
-          </div>
-          <div>
-            <div class="font-label-caps text-on-surface text-xs font-semibold">Zoya Alvi</div>
-            <div class="font-body-md text-primary text-[11px] flex items-center gap-0.5">
-              <span class="material-symbols-outlined text-[13px]">verified</span>
-              Verified Patron • London / Karachi
+          <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/20">
+            <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold text-sm">
+              ZA
+            </div>
+            <div>
+              <div class="font-label-caps text-on-surface text-xs font-semibold">Zainab Ali</div>
+              <div class="font-body-md text-primary text-[11px] flex items-center gap-0.5">
+                <span class="material-symbols-outlined text-[13px]">verified</span>
+                Verified Customer • Islamabad
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -99,9 +134,116 @@
 {% schema %}
 {
   "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Connoisseur Feedback"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "Scent Stories & Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Top Right Link Label",
+      "default": "Read All 2,850 Scent Reviews"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Top Right Link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "review_title",
+          "label": "Review Headline",
+          "default": "\"Honey Trap is an absolute intoxicating masterpiece\""
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Comment",
+          "default": "The initial spray has this golden, nectarous honey warmth layered with fresh orange blossom. But once the spiced truffle drydown kicks in after an hour, strangers literally stop me to ask what fragrance I am wearing."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Customer Name",
+          "default": "Malika Sengupta"
+        },
+        {
+          "type": "text",
+          "id": "author_initials",
+          "label": "Avatar Initials",
+          "default": "MS"
+        },
+        {
+          "type": "text",
+          "id": "author_badge",
+          "label": "Location & Verification Badge",
+          "default": "Verified Collector • Karachi"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Testimonials"
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_title": "\"Honey Trap is an absolute intoxicating masterpiece\"",
+            "review_text": "The initial spray has this golden, nectarous honey warmth layered with fresh orange blossom. But once the spiced truffle drydown kicks in after an hour, strangers literally stop me to ask what fragrance I am wearing.",
+            "author_name": "Malika Sengupta",
+            "author_initials": "MS",
+            "author_badge": "Verified Collector • Karachi"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_title": "\"Rivals 400-Euro Parisian Niche Houses\"",
+            "review_text": "As a niche fragrance collector with over 70 bottles, I was skeptical of an Extrait at this price. But the oil density here is insane — two sprays on my collar survived a full evening gala and was still projecting next morning.",
+            "author_name": "Taimoor Khan",
+            "author_initials": "TK",
+            "author_badge": "Fragrance Reviewer • Lahore"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_title": "\"Pure Comfort & Delicious Sillage\"",
+            "review_text": "I bought the discovery bundle with Honey Trap and Velvet Vanilla Oud. Layering them together is absolute magic. The customer service and velvet pouch packaging feel so opulent!",
+            "author_name": "Zainab Ali",
+            "author_initials": "ZA",
+            "author_badge": "Verified Customer • Islamabad"
+          }
+        }
+      ]
     }
   ]
 }

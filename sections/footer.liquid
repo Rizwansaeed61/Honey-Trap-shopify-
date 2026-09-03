@@ -1,90 +1,105 @@
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/50 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
-  <!-- Top Trust Bar -->
-  <div class="bg-surface-container-low py-space-lg border-b border-outline-variant/40">
-    <div class="max-w-7xl mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-space-md">
-      <div class="flex items-center gap-space-sm">
-        <span class="material-symbols-outlined text-primary text-[28px]">local_shipping</span>
-        <div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">Complimentary Courier</div>
-          <div class="font-body-md text-tertiary text-xs">On all orders above Rs. 1,500</div>
+  {% if section.settings.show_trust_bar %}
+    <!-- Top Trust Bar -->
+    <div class="bg-surface-container-low py-space-lg border-b border-outline-variant/40">
+      <div class="max-w-7xl mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-space-md">
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-primary text-[28px]">{{ section.settings.trust_1_icon | default: "local_shipping" }}</span>
+          <div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">{{ section.settings.trust_1_title | default: "Complimentary Courier" }}</div>
+            <div class="font-body-md text-tertiary text-xs">{{ section.settings.trust_1_desc | default: "On all orders above Rs. 1,500" }}</div>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-space-sm">
-        <span class="material-symbols-outlined text-primary text-[28px]">verified</span>
-        <div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">Authenticity Certified</div>
-          <div class="font-body-md text-tertiary text-xs">Original French Grasse essences</div>
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-primary text-[28px]">{{ section.settings.trust_2_icon | default: "verified" }}</span>
+          <div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">{{ section.settings.trust_2_title | default: "Authenticity Certified" }}</div>
+            <div class="font-body-md text-tertiary text-xs">{{ section.settings.trust_2_desc | default: "Original French Grasse essences" }}</div>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-space-sm">
-        <span class="material-symbols-outlined text-primary text-[28px]">redeem</span>
-        <div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">Free Scent Vial</div>
-          <div class="font-body-md text-tertiary text-xs">Included with every purchase</div>
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-primary text-[28px]">{{ section.settings.trust_3_icon | default: "redeem" }}</span>
+          <div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">{{ section.settings.trust_3_title | default: "Free Scent Vial" }}</div>
+            <div class="font-body-md text-tertiary text-xs">{{ section.settings.trust_3_desc | default: "Included with every purchase" }}</div>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-space-sm">
-        <span class="material-symbols-outlined text-primary text-[28px]">lock_reset</span>
-        <div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">Scent Guarantee</div>
-          <div class="font-body-md text-tertiary text-xs">Exchange if not deeply loved</div>
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-primary text-[28px]">{{ section.settings.trust_4_icon | default: "lock_reset" }}</span>
+          <div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">{{ section.settings.trust_4_title | default: "Scent Guarantee" }}</div>
+            <div class="font-body-md text-tertiary text-xs">{{ section.settings.trust_4_desc | default: "Exchange if not deeply loved" }}</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  {% endif %}
 
   <!-- Main Footer Navigation -->
   <div class="max-w-7xl mx-auto px-gutter py-space-xl grid grid-cols-1 md:grid-cols-12 gap-space-xl">
     <div class="md:col-span-4 space-y-space-md">
       <div class="flex items-center gap-space-sm">
-        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-surface-bright font-serif text-sm">S</div>
-        <span class="font-serif text-primary font-bold text-xl">Scents 'N Stories</span>
+        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-surface-bright font-serif text-sm">{{ section.settings.logo_letter | default: "S" }}</div>
+        <span class="font-serif text-primary font-bold text-xl">{{ section.settings.brand_name | default: shop.name }}</span>
       </div>
       <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">
-        Haute Parfumerie born from romantic narratives and classical artisanal compounding. We specialize in Extrait de Parfum creations engineered for dramatic presence and intimate memories.
+        {{ section.settings.brand_description | default: "Haute Parfumerie born from romantic narratives and classical artisanal compounding. We specialize in Extrait de Parfum creations engineered for dramatic presence and intimate memories." }}
       </p>
     </div>
 
     <div class="md:col-span-2 space-y-space-sm">
-      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">Fragrances</div>
+      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">{{ section.settings.menu_1_title | default: "Fragrances" }}</div>
       <ul class="space-y-space-xs font-body-md text-on-surface-variant text-xs">
-        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}products/honey-trap">Honey Trap Extrait</a></li>
-        <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}?filter=gourmand">Sweet &amp; Gourmand</a></li>
-        <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}?filter=amber">Amber &amp; Spiced</a></li>
-        <li><a class="hover:text-primary transition-colors" href="#regimen">Discovery Layering Sets</a></li>
+        {% if section.settings.menu_1 != blank and linklists[section.settings.menu_1].links.size > 0 %}
+          {% for link in linklists[section.settings.menu_1].links %}
+            <li><a class="hover:text-primary transition-colors" href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        {% else %}
+          <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}">Honey Trap Extrait</a></li>
+          <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}?filter=gourmand">Sweet &amp; Gourmand</a></li>
+          <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}?filter=amber">Amber &amp; Spiced</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#regimen">Discovery Layering Sets</a></li>
+        {% endif %}
       </ul>
     </div>
 
     <div class="md:col-span-2 space-y-space-sm">
-      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">Maison Services</div>
+      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">{{ section.settings.menu_2_title | default: "Maison Services" }}</div>
       <ul class="space-y-space-xs font-body-md text-on-surface-variant text-xs">
-        <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}#quiz">Scent Consultation Quiz</a></li>
-        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/faq">Order Tracking &amp; Care</a></li>
-        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/contact">VIP Concierge &amp; Boutiques</a></li>
-        <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/about">The Maison Archive</a></li>
+        {% if section.settings.menu_2 != blank and linklists[section.settings.menu_2].links.size > 0 %}
+          {% for link in linklists[section.settings.menu_2].links %}
+            <li><a class="hover:text-primary transition-colors" href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        {% else %}
+          <li><a class="hover:text-primary transition-colors" href="{{ routes.all_products_collection_url }}#quiz">Scent Consultation Quiz</a></li>
+          <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/faq">Order Tracking &amp; Care</a></li>
+          <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/contact">VIP Concierge &amp; Boutiques</a></li>
+          <li><a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/about">The Maison Archive</a></li>
+        {% endif %}
       </ul>
     </div>
 
     <div class="md:col-span-4 space-y-space-sm">
-      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">The Parfumerie Gazette</div>
+      <div class="font-label-caps text-on-surface uppercase text-xs font-semibold tracking-wider">{{ section.settings.newsletter_title | default: "The Parfumerie Gazette" }}</div>
       <p class="font-body-md text-on-surface-variant text-xs">
-        Receive private allocations, seasonal extrait releases, and secret scent notes directly in your inbox.
+        {{ section.settings.newsletter_text | default: "Receive private allocations, seasonal extrait releases, and secret scent notes directly in your inbox." }}
       </p>
-      <div class="flex gap-space-xs">
-        <input class="flex-1 bg-surface-container-low px-space-md py-space-xs rounded-full font-body-md text-xs text-on-surface placeholder:text-outline border border-outline-variant/60 focus:outline-none focus:border-primary" placeholder="Enter your email address" type="email"/>
-        <button class="bg-primary text-on-primary px-space-md py-space-xs rounded-full font-label-caps text-xs hover:bg-primary-container transition-colors uppercase tracking-wider font-semibold">Join</button>
-      </div>
+      {% form 'customer', class: 'flex gap-space-xs' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input class="flex-1 bg-surface-container-low px-space-md py-space-xs rounded-full font-body-md text-xs text-on-surface placeholder:text-outline border border-outline-variant/60 focus:outline-none focus:border-primary" placeholder="Enter your email address" type="email" name="contact[email]" required/>
+        <button type="submit" class="bg-primary text-on-primary px-space-md py-space-xs rounded-full font-label-caps text-xs hover:bg-primary-container transition-colors uppercase tracking-wider font-semibold">Join</button>
+      {% endform %}
     </div>
   </div>
 
   <!-- Copyright -->
   <div class="bg-surface-container-low py-space-md border-t border-outline-variant/30">
     <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-md text-xs">
-      <div>© {{ 'now' | date: '%Y' }} Scents 'N Stories Luxury Fragrance House. All olfactory compositions and rights reserved.</div>
+      <div>© {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text | default: "Scents 'N Stories Luxury Fragrance House. All olfactory compositions and rights reserved." }}</div>
       <div class="flex gap-space-md">
-        <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-        <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-        <a class="hover:text-primary transition-colors" href="#">IFRA Compliance &amp; Authenticity</a>
+        <a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/faq">Privacy Policy</a>
+        <a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/faq">Terms of Service</a>
+        <a class="hover:text-primary transition-colors" href="{{ routes.root_url }}pages/about">IFRA Compliance &amp; Authenticity</a>
       </div>
     </div>
   </div>
@@ -93,6 +108,151 @@
 {% schema %}
 {
   "name": "Footer",
-  "settings": []
+  "settings": [
+    {
+      "type": "header",
+      "content": "Trust Bar Above Footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_bar",
+      "label": "Show Trust Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "trust_1_icon",
+      "label": "Trust Item 1 Icon",
+      "default": "local_shipping"
+    },
+    {
+      "type": "text",
+      "id": "trust_1_title",
+      "label": "Trust Item 1 Title",
+      "default": "Complimentary Courier"
+    },
+    {
+      "type": "text",
+      "id": "trust_1_desc",
+      "label": "Trust Item 1 Subtitle",
+      "default": "On all orders above Rs. 1,500"
+    },
+    {
+      "type": "text",
+      "id": "trust_2_icon",
+      "label": "Trust Item 2 Icon",
+      "default": "verified"
+    },
+    {
+      "type": "text",
+      "id": "trust_2_title",
+      "label": "Trust Item 2 Title",
+      "default": "Authenticity Certified"
+    },
+    {
+      "type": "text",
+      "id": "trust_2_desc",
+      "label": "Trust Item 2 Subtitle",
+      "default": "Original French Grasse essences"
+    },
+    {
+      "type": "text",
+      "id": "trust_3_icon",
+      "label": "Trust Item 3 Icon",
+      "default": "redeem"
+    },
+    {
+      "type": "text",
+      "id": "trust_3_title",
+      "label": "Trust Item 3 Title",
+      "default": "Free Scent Vial"
+    },
+    {
+      "type": "text",
+      "id": "trust_3_desc",
+      "label": "Trust Item 3 Subtitle",
+      "default": "Included with every purchase"
+    },
+    {
+      "type": "text",
+      "id": "trust_4_icon",
+      "label": "Trust Item 4 Icon",
+      "default": "lock_reset"
+    },
+    {
+      "type": "text",
+      "id": "trust_4_title",
+      "label": "Trust Item 4 Title",
+      "default": "Scent Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "trust_4_desc",
+      "label": "Trust Item 4 Subtitle",
+      "default": "Exchange if not deeply loved"
+    },
+    {
+      "type": "header",
+      "content": "Brand Identity & Gazette"
+    },
+    {
+      "type": "text",
+      "id": "logo_letter",
+      "label": "Monogram Letter",
+      "default": "S"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "Scents 'N Stories"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand Description",
+      "default": "Haute Parfumerie born from romantic narratives and classical artisanal compounding. We specialize in Extrait de Parfum creations engineered for dramatic presence and intimate memories."
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "Fragrances"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1 Link List"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "Maison Services"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2 Link List"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "The Parfumerie Gazette"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "Newsletter Description",
+      "default": "Receive private allocations, seasonal extrait releases, and secret scent notes directly in your inbox."
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "Scents 'N Stories Luxury Fragrance House. All olfactory compositions and rights reserved."
+    }
+  ]
 }
 {% endschema %}

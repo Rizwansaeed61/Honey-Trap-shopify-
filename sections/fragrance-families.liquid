@@ -2,25 +2,36 @@
   <div class="max-w-7xl mx-auto px-gutter">
     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
       <span class="font-label-caps uppercase tracking-[0.2em] text-on-surface flex items-center gap-space-2xs whitespace-nowrap text-xs font-semibold">
-        <span class="material-symbols-outlined text-primary text-[20px]">filter_vintage</span>
-        Olfactory Fragrance Families:
+        {% if section.settings.icon != blank %}
+          <span class="material-symbols-outlined text-primary text-[20px]">{{ section.settings.icon }}</span>
+        {% endif %}
+        {{ section.settings.title | default: "Olfactory Fragrance Families:" }}
       </span>
       <div class="flex flex-wrap gap-space-xs w-full overflow-x-auto pb-space-2xs md:pb-0" id="concern-chips">
         <button class="concern-btn active px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-primary text-on-primary shadow-sm transition-all" onclick="filterConcern('all', this)">
-          All Families
+          {{ section.settings.all_label | default: "All Families" }}
         </button>
-        <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('gourmand', this)">
-          Sweet &amp; Gourmand
-        </button>
-        <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('amber', this)">
-          Amber &amp; Spiced
-        </button>
-        <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('citrus', this)">
-          Fresh Citrus &amp; Florals
-        </button>
-        <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('woody', this)">
-          Woody &amp; Oudh
-        </button>
+
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('{{ block.settings.filter_key }}', this)" {{ block.shopify_attributes }}>
+              {{ block.settings.title }}
+            </button>
+          {% endfor %}
+        {% else %}
+          <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('gourmand', this)">
+            Sweet &amp; Gourmand
+          </button>
+          <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('amber', this)">
+            Amber &amp; Spiced
+          </button>
+          <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('citrus', this)">
+            Fresh Citrus &amp; Florals
+          </button>
+          <button class="concern-btn px-space-md py-space-2xs rounded-full font-label-caps text-[11px] uppercase tracking-wider bg-surface-container-lowest text-on-surface-variant hover:text-primary border border-outline-variant/60 transition-all" onclick="filterConcern('woody', this)">
+            Woody &amp; Oudh
+          </button>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -29,9 +40,79 @@
 {% schema %}
 {
   "name": "Fragrance Families",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Filter Label",
+      "default": "Olfactory Fragrance Families:"
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Material Icon Name",
+      "default": "filter_vintage"
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "All Items Button Label",
+      "default": "All Families"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "family",
+      "name": "Scent Family Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Family Name",
+          "default": "Sweet & Gourmand"
+        },
+        {
+          "type": "text",
+          "id": "filter_key",
+          "label": "Filter Key (lowercase, e.g. gourmand, amber, woody, citrus)",
+          "default": "gourmand"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Fragrance Families"
+      "name": "Fragrance Families",
+      "blocks": [
+        {
+          "type": "family",
+          "settings": {
+            "title": "Sweet & Gourmand",
+            "filter_key": "gourmand"
+          }
+        },
+        {
+          "type": "family",
+          "settings": {
+            "title": "Amber & Spiced",
+            "filter_key": "amber"
+          }
+        },
+        {
+          "type": "family",
+          "settings": {
+            "title": "Fresh Citrus & Florals",
+            "filter_key": "citrus"
+          }
+        },
+        {
+          "type": "family",
+          "settings": {
+            "title": "Woody & Oudh",
+            "filter_key": "woody"
+          }
+        }
+      ]
     }
   ]
 }

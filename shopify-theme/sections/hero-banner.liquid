@@ -1,72 +1,88 @@
-<!-- Top Notification & Prestige Micro-Bar -->
-<div class="bg-surface-container-low px-gutter py-space-xs border-b border-outline-variant/30">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-space-xs text-on-surface-variant font-body-md text-xs">
-    <div class="flex items-center gap-space-2xs">
-      <span class="font-label-caps text-primary uppercase tracking-widest font-semibold">Flagship Masterpiece</span>
-      <span>•</span>
-      <span>Honey Trap — Extrait De Parfum (35% Concentration)</span>
-    </div>
-    <div class="flex items-center gap-space-sm">
-      <span class="flex items-center gap-1 text-secondary font-label-caps text-[11px]">
-        <span class="material-symbols-outlined text-[15px] text-primary-container" style="font-variation-settings: 'FILL' 1;">stars</span>
-        Gourmand Perfume of the Year 2025
-      </span>
-      <span class="hidden md:inline text-outline-variant">|</span>
-      <span class="hidden md:inline font-body-md text-xs">Aged in Oak Casks for 90 Days</span>
+{% if section.settings.show_micro_bar %}
+  <!-- Top Notification & Prestige Micro-Bar -->
+  <div class="bg-surface-container-low px-gutter py-space-xs border-b border-outline-variant/30">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-space-xs text-on-surface-variant font-body-md text-xs">
+      <div class="flex items-center gap-space-2xs">
+        <span class="font-label-caps text-primary uppercase tracking-widest font-semibold">{{ section.settings.micro_bar_badge | default: "Flagship Masterpiece" }}</span>
+        <span>•</span>
+        <span>{{ section.settings.micro_bar_title | default: "Honey Trap — Extrait De Parfum (35% Concentration)" }}</span>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        {% if section.settings.micro_bar_award != blank %}
+          <span class="flex items-center gap-1 text-secondary font-label-caps text-[11px]">
+            <span class="material-symbols-outlined text-[15px] text-primary-container" style="font-variation-settings: 'FILL' 1;">stars</span>
+            {{ section.settings.micro_bar_award }}
+          </span>
+        {% endif %}
+        {% if section.settings.micro_bar_aging != blank %}
+          <span class="hidden md:inline text-outline-variant">|</span>
+          <span class="hidden md:inline font-body-md text-xs">{{ section.settings.micro_bar_aging }}</span>
+        {% endif %}
+      </div>
     </div>
   </div>
-</div>
+{% endif %}
 
 <!-- Hero Section -->
 <section class="relative bg-gradient-to-b from-surface-bright via-surface-container-lowest to-surface-container-low overflow-hidden border-b border-outline-variant/30">
   <div class="max-w-7xl mx-auto px-gutter py-space-xl lg:py-space-3xl grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
     <!-- Left Column: Copy & CTAs -->
     <div class="lg:col-span-7 flex flex-col items-start space-y-space-md z-10">
-      <!-- Prestige Badge Top -->
-      <div class="inline-flex items-center gap-space-xs bg-primary-fixed/50 text-on-primary-fixed border border-primary-container/40 px-space-sm py-space-2xs rounded-full shadow-sm">
-        <span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-        <span class="font-label-caps text-[11px] tracking-[0.2em] uppercase font-semibold">SCENTS 'N STORIES HAUTE PARFUMERIE</span>
-      </div>
+      {% if section.settings.brand_prestige_badge != blank %}
+        <!-- Prestige Badge Top -->
+        <div class="inline-flex items-center gap-space-xs bg-primary-fixed/50 text-on-primary-fixed border border-primary-container/40 px-space-sm py-space-2xs rounded-full shadow-sm">
+          <span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+          <span class="font-label-caps text-[11px] tracking-[0.2em] uppercase font-semibold">{{ section.settings.brand_prestige_badge }}</span>
+        </div>
+      {% endif %}
+
       <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-on-surface tracking-tight leading-tight">
-        Indulge in Honey Trap <br class="hidden sm:inline"/>
-        <span class="text-primary italic font-normal">The Golden Gourmand Elixir.</span>
+        {{ section.settings.headline | default: "Indulge in Honey Trap" }} <br class="hidden sm:inline"/>
+        <span class="text-primary italic font-normal">{{ section.settings.headline_sub | default: "The Golden Gourmand Elixir." }}</span>
       </h1>
+
       <p class="font-body-lg text-on-surface-variant max-w-xl leading-relaxed text-sm sm:text-base">
-        An intoxicating, sensual symphony of decadent raw golden honey, velvety cocoa truffle, delicate orange blossom, and warm Ceylon cinnamon. Handcrafted using rarest French perfume oils for unmatched sillage.
+        {{ section.settings.description | default: "An intoxicating, sensual symphony of decadent raw golden honey, velvety cocoa truffle, delicate orange blossom, and warm Ceylon cinnamon. Handcrafted using rarest French perfume oils for unmatched sillage." }}
       </p>
 
-      <!-- Scent Note Pill Strip -->
-      <div class="w-full bg-surface-container-lowest/80 border border-outline-variant/70 rounded-full px-space-md py-space-xs flex items-center gap-space-xs max-w-lg shadow-sm">
-        <span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
-        <p class="font-body-md text-on-surface truncate text-xs sm:text-sm">
-          <span class="font-semibold text-primary">Top Sillage Score:</span> 12+ Hours Unmatched Longevity on Skin &amp; Fabric
-        </p>
-      </div>
+      {% if section.settings.sillage_score_text != blank %}
+        <!-- Scent Note Pill Strip -->
+        <div class="w-full bg-surface-container-lowest/80 border border-outline-variant/70 rounded-full px-space-md py-space-xs flex items-center gap-space-xs max-w-lg shadow-sm">
+          <span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+          <p class="font-body-md text-on-surface truncate text-xs sm:text-sm">
+            <span class="font-semibold text-primary">Top Sillage Score:</span> {{ section.settings.sillage_score_text }}
+          </p>
+        </div>
+      {% endif %}
 
       <!-- Action CTAs -->
       <div class="flex flex-wrap items-center gap-space-sm pt-space-xs w-full sm:w-auto">
-        <a class="w-full sm:w-auto text-center px-space-lg py-space-sm rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-caps text-[12px] tracking-[0.16em] uppercase shadow-md hover:shadow-xl hover:opacity-95 transition-all transform hover:-translate-y-0.5" href="{{ routes.root_url }}products/honey-trap">
-          DISCOVER HONEY TRAP
-        </a>
-        <a class="w-full sm:w-auto px-space-lg py-space-sm rounded-full bg-surface-container-high text-primary border border-outline-variant/60 font-label-caps text-[12px] tracking-[0.16em] uppercase hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-space-2xs" href="#notes-pyramid">
-          <span class="material-symbols-outlined text-[18px]">temp_preferences_custom</span>
-          <span>EXPLORE OLFACTORY NOTES</span>
-        </a>
+        {% if section.settings.primary_button_label != blank %}
+          <a class="w-full sm:w-auto text-center px-space-lg py-space-sm rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-caps text-[12px] tracking-[0.16em] uppercase shadow-md hover:shadow-xl hover:opacity-95 transition-all transform hover:-translate-y-0.5" href="{{ section.settings.primary_button_link | default: routes.all_products_collection_url }}">
+            {{ section.settings.primary_button_label }}
+          </a>
+        {% endif %}
+        {% if section.settings.secondary_button_label != blank %}
+          <a class="w-full sm:w-auto px-space-lg py-space-sm rounded-full bg-surface-container-high text-primary border border-outline-variant/60 font-label-caps text-[12px] tracking-[0.16em] uppercase hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-space-2xs" href="{{ section.settings.secondary_button_link | default: '#notes-pyramid' }}">
+            <span class="material-symbols-outlined text-[18px]">temp_preferences_custom</span>
+            <span>{{ section.settings.secondary_button_label }}</span>
+          </a>
+        {% endif %}
       </div>
 
       <!-- Micro stats -->
       <div class="grid grid-cols-3 gap-space-md pt-space-md w-full max-w-md">
         <div class="bg-surface-container-lowest/90 p-space-sm rounded-lg border border-outline-variant/40 shadow-xs text-center">
-          <div class="font-serif font-bold text-xl text-primary">12+ Hrs</div>
-          <div class="font-label-caps text-[10px] text-tertiary uppercase mt-1">Extrait Sillage</div>
+          <div class="font-serif font-bold text-xl text-primary">{{ section.settings.stat_1_val | default: "12+ Hrs" }}</div>
+          <div class="font-label-caps text-[10px] text-tertiary uppercase mt-1">{{ section.settings.stat_1_label | default: "Extrait Sillage" }}</div>
         </div>
         <div class="bg-surface-container-lowest/90 p-space-sm rounded-lg border border-outline-variant/40 shadow-xs text-center">
-          <div class="font-serif font-bold text-xl text-primary">35%</div>
-          <div class="font-label-caps text-[10px] text-tertiary uppercase mt-1">Oil Concentration</div>
+          <div class="font-serif font-bold text-xl text-primary">{{ section.settings.stat_2_val | default: "35%" }}</div>
+          <div class="font-label-caps text-[10px] text-tertiary uppercase mt-1">{{ section.settings.stat_2_label | default: "Oil Concentration" }}</div>
         </div>
         <div class="bg-surface-container-lowest/90 p-space-sm rounded-lg border border-outline-variant/40 shadow-xs text-center">
-          <div class="font-serif font-bold text-xl text-primary">Grasse</div>
-          <div class="font-label-caps text-[10px] text-tertiary uppercase mt-1">French Heritage</div>
+          <div class="font-serif font-bold text-xl text-primary">{{ section.settings.stat_3_val | default: "Grasse" }}</div>
+          <div class="font-label-caps text-[10px] text-tertiary uppercase mt-1">{{ section.settings.stat_3_label | default: "French Heritage" }}</div>
         </div>
       </div>
     </div>
@@ -79,28 +95,40 @@
 
       <div class="relative w-full max-w-md bg-surface-container-lowest p-space-md rounded-xl shadow-2xl border border-outline-variant/60 flex flex-col items-center">
         <div class="absolute top-5 left-5 z-10 flex flex-col gap-1.5">
-          <span class="bg-primary text-on-primary font-label-caps text-[10px] px-space-xs py-1 rounded-full uppercase tracking-widest shadow-xs">Extrait de Parfum</span>
-          <span class="bg-primary-fixed text-on-primary-fixed font-label-caps text-[10px] px-space-xs py-1 rounded-full uppercase tracking-widest border border-primary-container/40">Gourmand Warm</span>
+          {% if section.settings.card_badge_1 != blank %}
+            <span class="bg-primary text-on-primary font-label-caps text-[10px] px-space-xs py-1 rounded-full uppercase tracking-widest shadow-xs">{{ section.settings.card_badge_1 }}</span>
+          {% endif %}
+          {% if section.settings.card_badge_2 != blank %}
+            <span class="bg-primary-fixed text-on-primary-fixed font-label-caps text-[10px] px-space-xs py-1 rounded-full uppercase tracking-widest border border-primary-container/40">{{ section.settings.card_badge_2 }}</span>
+          {% endif %}
         </div>
 
         <!-- Product Hero Image -->
         <div class="w-full h-96 relative overflow-hidden rounded-lg bg-gradient-to-b from-surface-bright to-surface-container-low flex items-center justify-center p-4">
-          <img 
-            alt="Scents 'N Stories Honey Trap Luxury Extrait De Parfum" 
-            class="w-full h-full object-contain filter drop-shadow-xl hover:scale-105 transition-transform duration-500" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH2xpaxVreku72Hu1SBlcRsGzYjJBnJ4k7uYqOdyLzi5Rr34NVMYB4w89c1CbqV9w-ho0GQZeODiuZqazD2UTXa9u2gFtkEeLiHSdZa8Xj3so_EgjsmZ1SQ_vJz18DoJz8ivolyw7Hi6t2cGiyCEhmKtTQUlRbv5Qpd2L4gboQkzzMKrRCKzr011kcxkIERZ2DOCkPglTrELHGuMQ3Z67d0WJmkm8AD9PYOeN_GwnRYVW39QsLtHR_Zh3apz7JdPIudew"
-          />
+          {% if section.settings.hero_image != blank %}
+            <img 
+              alt="{{ section.settings.product_title | escape }}" 
+              class="w-full h-full object-contain filter drop-shadow-xl hover:scale-105 transition-transform duration-500" 
+              src="{{ section.settings.hero_image | image_url: width: 800 }}"
+            />
+          {% else %}
+            <img 
+              alt="{{ section.settings.product_title | default: 'Honey Trap' }}" 
+              class="w-full h-full object-contain filter drop-shadow-xl hover:scale-105 transition-transform duration-500" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH2xpaxVreku72Hu1SBlcRsGzYjJBnJ4k7uYqOdyLzi5Rr34NVMYB4w89c1CbqV9w-ho0GQZeODiuZqazD2UTXa9u2gFtkEeLiHSdZa8Xj3so_EgjsmZ1SQ_vJz18DoJz8ivolyw7Hi6t2cGiyCEhmKtTQUlRbv5Qpd2L4gboQkzzMKrRCKzr011kcxkIERZ2DOCkPglTrELHGuMQ3Z67d0WJmkm8AD9PYOeN_GwnRYVW39QsLtHR_Zh3apz7JdPIudew"
+            />
+          {% endif %}
         </div>
 
         <!-- Quick Spec Card Footer -->
         <div class="w-full mt-space-sm bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-outline-variant/50">
           <div>
-            <div class="font-serif font-bold text-on-surface text-base">Honey Trap</div>
-            <div class="font-body-md text-xs text-on-surface-variant">Warm Golden Honey • Cocoa • Spiced Truffle</div>
+            <div class="font-serif font-bold text-on-surface text-base">{{ section.settings.product_title | default: "Honey Trap" }}</div>
+            <div class="font-body-md text-xs text-on-surface-variant">{{ section.settings.product_notes | default: "Warm Golden Honey • Cocoa • Spiced Truffle" }}</div>
           </div>
           <div class="text-right">
-            <div class="font-serif font-bold text-primary text-base">Rs. 2,450</div>
-            <div class="font-label-caps text-[10px] text-secondary font-semibold uppercase tracking-wider">In Stock • 50ml</div>
+            <div class="font-serif font-bold text-primary text-base">{{ section.settings.product_price | default: "Rs. 2,450" }}</div>
+            <div class="font-label-caps text-[10px] text-secondary font-semibold uppercase tracking-wider">{{ section.settings.product_status | default: "In Stock • 50ml" }}</div>
           </div>
         </div>
       </div>
@@ -113,6 +141,50 @@
   "name": "Hero Banner",
   "settings": [
     {
+      "type": "header",
+      "content": "Prestige Micro-Bar (Top Ticker)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_micro_bar",
+      "label": "Show Micro-Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "micro_bar_badge",
+      "label": "Micro-Bar Badge",
+      "default": "Flagship Masterpiece"
+    },
+    {
+      "type": "text",
+      "id": "micro_bar_title",
+      "label": "Micro-Bar Title",
+      "default": "Honey Trap — Extrait De Parfum (35% Concentration)"
+    },
+    {
+      "type": "text",
+      "id": "micro_bar_award",
+      "label": "Micro-Bar Award / Honor",
+      "default": "Gourmand Perfume of the Year 2025"
+    },
+    {
+      "type": "text",
+      "id": "micro_bar_aging",
+      "label": "Micro-Bar Aging Note",
+      "default": "Aged in Oak Casks for 90 Days"
+    },
+    {
+      "type": "header",
+      "content": "Main Hero Copy"
+    },
+    {
+      "type": "text",
+      "id": "brand_prestige_badge",
+      "label": "Badge Above Headline",
+      "default": "SCENTS 'N STORIES HAUTE PARFUMERIE"
+    },
+    {
       "type": "text",
       "id": "headline",
       "label": "Headline",
@@ -120,9 +192,132 @@
     },
     {
       "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
+      "id": "headline_sub",
+      "label": "Italic Accent Subheading",
       "default": "The Golden Gourmand Elixir."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Story Description",
+      "default": "An intoxicating, sensual symphony of decadent raw golden honey, velvety cocoa truffle, delicate orange blossom, and warm Ceylon cinnamon. Handcrafted using rarest French perfume oils for unmatched sillage."
+    },
+    {
+      "type": "text",
+      "id": "sillage_score_text",
+      "label": "Sillage Score Pill Text",
+      "default": "12+ Hours Unmatched Longevity on Skin & Fabric"
+    },
+    {
+      "type": "header",
+      "content": "Action Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary Button Label",
+      "default": "DISCOVER HONEY TRAP"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary Button Label",
+      "default": "EXPLORE OLFACTORY NOTES"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Prestige Stats Strip"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_val",
+      "label": "Stat 1 Value",
+      "default": "12+ Hrs"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Stat 1 Label",
+      "default": "Extrait Sillage"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_val",
+      "label": "Stat 2 Value",
+      "default": "35%"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Stat 2 Label",
+      "default": "Oil Concentration"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_val",
+      "label": "Stat 3 Value",
+      "default": "Grasse"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Stat 3 Label",
+      "default": "French Heritage"
+    },
+    {
+      "type": "header",
+      "content": "Right Card Presentation"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Perfume Bottle Image"
+    },
+    {
+      "type": "text",
+      "id": "card_badge_1",
+      "label": "Card Badge 1",
+      "default": "Extrait de Parfum"
+    },
+    {
+      "type": "text",
+      "id": "card_badge_2",
+      "label": "Card Badge 2",
+      "default": "Gourmand Warm"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Showcase Product Title",
+      "default": "Honey Trap"
+    },
+    {
+      "type": "text",
+      "id": "product_notes",
+      "label": "Key Notes Line",
+      "default": "Warm Golden Honey • Cocoa • Spiced Truffle"
+    },
+    {
+      "type": "text",
+      "id": "product_price",
+      "label": "Display Price",
+      "default": "Rs. 2,450"
+    },
+    {
+      "type": "text",
+      "id": "product_status",
+      "label": "Stock & Volume Label",
+      "default": "In Stock • 50ml"
     }
   ],
   "presets": [

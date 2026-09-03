@@ -1,41 +1,56 @@
 <section class="py-space-xl bg-surface-container-high/40 border-b border-outline-variant/30">
   <div class="max-w-7xl mx-auto px-gutter">
     <div class="text-center max-w-2xl mx-auto mb-space-lg">
-      <span class="font-label-caps uppercase tracking-[0.2em] text-primary text-xs font-semibold">Artisanal Haute Perfumery</span>
-      <h2 class="font-serif text-3xl sm:text-4xl text-primary mt-1 font-semibold">The Art of Extrait De Parfum</h2>
-      <p class="font-body-md text-on-surface-variant text-sm">Where raw nature meets French master-perfumer alchemy.</p>
+      {% if section.settings.subtitle != blank %}
+        <span class="font-label-caps uppercase tracking-[0.2em] text-primary text-xs font-semibold">{{ section.settings.subtitle }}</span>
+      {% endif %}
+      <h2 class="font-serif text-3xl sm:text-4xl text-primary mt-1 font-semibold">{{ section.settings.title | default: "The Art of Extrait De Parfum" }}</h2>
+      {% if section.settings.description != blank %}
+        <p class="font-body-md text-on-surface-variant text-sm">{{ section.settings.description }}</p>
+      {% endif %}
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
-      <!-- Metric 1 -->
-      <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col items-center text-center space-y-space-xs">
-        <div class="w-16 h-16 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary mb-1">
-          <span class="material-symbols-outlined text-[32px]">oil_barrel</span>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col items-center text-center space-y-space-xs" {{ block.shopify_attributes }}>
+            <div class="w-16 h-16 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary mb-1">
+              <span class="material-symbols-outlined text-[32px]">{{ block.settings.icon | default: 'spa' }}</span>
+            </div>
+            <div class="font-serif text-primary text-xl font-bold">{{ block.settings.value_text }}</div>
+            <div class="font-serif text-on-surface text-sm font-semibold">{{ block.settings.subtitle }}</div>
+            <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <!-- Default Pillars -->
+        <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col items-center text-center space-y-space-xs">
+          <div class="w-16 h-16 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary mb-1">
+            <span class="material-symbols-outlined text-[32px]">oil_barrel</span>
+          </div>
+          <div class="font-serif text-primary text-xl font-bold">35% French Essence</div>
+          <div class="font-serif text-on-surface text-sm font-semibold">Pure Fragrance Oil</div>
+          <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">Twice the concentration of standard Eau de Parfum, creating intense projection and long-lasting body warmth.</p>
         </div>
-        <div class="font-serif text-primary text-xl font-bold">35% French Essence</div>
-        <div class="font-serif text-on-surface text-sm font-semibold">Pure Fragrance Oil</div>
-        <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">Twice the concentration of standard Eau de Parfum, creating intense projection and long-lasting body warmth.</p>
-      </div>
 
-      <!-- Metric 2 -->
-      <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col items-center text-center space-y-space-xs">
-        <div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center text-primary mb-1">
-          <span class="material-symbols-outlined text-[32px]">hourglass_top</span>
+        <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col items-center text-center space-y-space-xs">
+          <div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center text-primary mb-1">
+            <span class="material-symbols-outlined text-[32px]">hourglass_top</span>
+          </div>
+          <div class="font-serif text-primary text-xl font-bold">90 Days Aging</div>
+          <div class="font-serif text-on-surface text-sm font-semibold">Slow Barrel Maceration</div>
+          <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">Each batch matures in dark temperature-controlled vats so floral and gourmand molecules bond harmoniously.</p>
         </div>
-        <div class="font-serif text-primary text-xl font-bold">90 Days Aging</div>
-        <div class="font-serif text-on-surface text-sm font-semibold">Slow Barrel Maceration</div>
-        <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">Each batch matures in dark temperature-controlled vats so floral and gourmand molecules bond harmoniously.</p>
-      </div>
 
-      <!-- Metric 3 -->
-      <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col items-center text-center space-y-space-xs">
-        <div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-1">
-          <span class="material-symbols-outlined text-[32px]">spa</span>
+        <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-xs border border-outline-variant/40 flex flex-col items-center text-center space-y-space-xs">
+          <div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-1">
+            <span class="material-symbols-outlined text-[32px]">spa</span>
+          </div>
+          <div class="font-serif text-primary text-xl font-bold">100% Clean Alcohol</div>
+          <div class="font-serif text-on-surface text-sm font-semibold">Grain Sugar Alcohol Base</div>
+          <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">Zero harsh chemical propellant or synthetic pungent denaturants. Only pristine skin-safe organic carrier.</p>
         </div>
-        <div class="font-serif text-primary text-xl font-bold">100% Clean Alcohol</div>
-        <div class="font-serif text-on-surface text-sm font-semibold">Grain Sugar Alcohol Base</div>
-        <p class="font-body-md text-on-surface-variant text-xs leading-relaxed">Zero harsh chemical propellant or synthetic pungent denaturants. Only pristine skin-safe organic carrier.</p>
-      </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -43,9 +58,91 @@
 {% schema %}
 {
   "name": "The Art of Extrait",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Artisanal Haute Perfumery"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "The Art of Extrait De Parfum"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Section Description",
+      "default": "Where raw nature meets French master-perfumer alchemy."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Craftsmanship Pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Material Icon Name",
+          "default": "oil_barrel",
+          "info": "e.g. oil_barrel, hourglass_top, spa, science, verified"
+        },
+        {
+          "type": "text",
+          "id": "value_text",
+          "label": "Main Metric / Value",
+          "default": "35% French Essence"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Pure Fragrance Oil"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Twice the concentration of standard Eau de Parfum, creating intense projection and long-lasting body warmth."
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "The Art of Extrait"
+      "name": "The Art of Extrait",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "oil_barrel",
+            "value_text": "35% French Essence",
+            "subtitle": "Pure Fragrance Oil",
+            "description": "Twice the concentration of standard Eau de Parfum, creating intense projection and long-lasting body warmth."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "hourglass_top",
+            "value_text": "90 Days Aging",
+            "subtitle": "Slow Barrel Maceration",
+            "description": "Each batch matures in dark temperature-controlled vats so floral and gourmand molecules bond harmoniously."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "spa",
+            "value_text": "100% Clean Alcohol",
+            "subtitle": "Grain Sugar Alcohol Base",
+            "description": "Zero harsh chemical propellant or synthetic pungent denaturants. Only pristine skin-safe organic carrier."
+          }
+        }
+      ]
     }
   ]
 }

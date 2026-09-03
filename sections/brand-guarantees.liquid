@@ -1,46 +1,63 @@
 <section class="py-space-xl bg-surface-container-lowest border-b border-outline-variant/30">
   <div class="max-w-7xl mx-auto px-gutter">
     <div class="bg-surface-container-low rounded-xl p-space-lg border border-outline-variant/40 shadow-xs">
+      {% if section.settings.heading != blank %}
+        <div class="text-center font-label-caps uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-space-md">
+          {{ section.settings.heading }}
+        </div>
+      {% endif %}
       <div class="grid grid-cols-2 md:grid-cols-5 gap-space-md text-center">
-        <div class="flex flex-col items-center space-y-space-2xs">
-          <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
-            <span class="material-symbols-outlined text-[26px]">eco</span>
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            <div class="flex flex-col items-center space-y-space-2xs" {{ block.shopify_attributes }}>
+              <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
+                <span class="material-symbols-outlined text-[26px]">{{ block.settings.icon | default: "verified" }}</span>
+              </div>
+              <div class="font-label-caps text-on-surface text-xs font-semibold">{{ block.settings.title }}</div>
+              <div class="font-body-md text-tertiary text-xs">{{ block.settings.description }}</div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="flex flex-col items-center space-y-space-2xs">
+            <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
+              <span class="material-symbols-outlined text-[26px]">eco</span>
+            </div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">Cruelty-Free</div>
+            <div class="font-body-md text-tertiary text-xs">Never tested on animals</div>
           </div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">Cruelty-Free</div>
-          <div class="font-body-md text-tertiary text-xs">Never tested on animals</div>
-        </div>
 
-        <div class="flex flex-col items-center space-y-space-2xs">
-          <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
-            <span class="material-symbols-outlined text-[26px]">award_star</span>
+          <div class="flex flex-col items-center space-y-space-2xs">
+            <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
+              <span class="material-symbols-outlined text-[26px]">award_star</span>
+            </div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">French Oils</div>
+            <div class="font-body-md text-tertiary text-xs">Direct from Grasse</div>
           </div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">French Oils</div>
-          <div class="font-body-md text-tertiary text-xs">Direct from Grasse</div>
-        </div>
 
-        <div class="flex flex-col items-center space-y-space-2xs">
-          <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
-            <span class="material-symbols-outlined text-[26px]">schedule</span>
+          <div class="flex flex-col items-center space-y-space-2xs">
+            <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
+              <span class="material-symbols-outlined text-[26px]">schedule</span>
+            </div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">12+ Hour Sillage</div>
+            <div class="font-body-md text-tertiary text-xs">Tested all-day wear</div>
           </div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">12+ Hour Sillage</div>
-          <div class="font-body-md text-tertiary text-xs">Tested all-day wear</div>
-        </div>
 
-        <div class="flex flex-col items-center space-y-space-2xs">
-          <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
-            <span class="material-symbols-outlined text-[26px]">verified</span>
+          <div class="flex flex-col items-center space-y-space-2xs">
+            <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
+              <span class="material-symbols-outlined text-[26px]">verified</span>
+            </div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">IFRA Certified</div>
+            <div class="font-body-md text-tertiary text-xs">Global perfume standards</div>
           </div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">IFRA Certified</div>
-          <div class="font-body-md text-tertiary text-xs">Global perfume standards</div>
-        </div>
 
-        <div class="col-span-2 md:col-span-1 flex flex-col items-center space-y-space-2xs">
-          <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
-            <span class="material-symbols-outlined text-[26px]">local_shipping</span>
+          <div class="col-span-2 md:col-span-1 flex flex-col items-center space-y-space-2xs">
+            <div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-outline-variant/30">
+              <span class="material-symbols-outlined text-[26px]">local_shipping</span>
+            </div>
+            <div class="font-label-caps text-on-surface text-xs font-semibold">Express Delivery</div>
+            <div class="font-body-md text-tertiary text-xs">Insured priority dispatch</div>
           </div>
-          <div class="font-label-caps text-on-surface text-xs font-semibold">Express Delivery</div>
-          <div class="font-body-md text-tertiary text-xs">Insured priority dispatch</div>
-        </div>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -49,9 +66,86 @@
 {% schema %}
 {
   "name": "Brand Guarantees",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "The Scents 'N Stories Promise"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "guarantee",
+      "name": "Guarantee Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Material Icon Name",
+          "default": "verified",
+          "info": "e.g. eco, award_star, schedule, verified, local_shipping, redeem, lock_reset"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cruelty-Free"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Subtitle / Description",
+          "default": "Never tested on animals"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Brand Guarantees"
+      "name": "Brand Guarantees",
+      "blocks": [
+        {
+          "type": "guarantee",
+          "settings": {
+            "icon": "eco",
+            "title": "Cruelty-Free",
+            "description": "Never tested on animals"
+          }
+        },
+        {
+          "type": "guarantee",
+          "settings": {
+            "icon": "award_star",
+            "title": "French Oils",
+            "description": "Direct from Grasse"
+          }
+        },
+        {
+          "type": "guarantee",
+          "settings": {
+            "icon": "schedule",
+            "title": "12+ Hour Sillage",
+            "description": "Tested all-day wear"
+          }
+        },
+        {
+          "type": "guarantee",
+          "settings": {
+            "icon": "verified",
+            "title": "IFRA Certified",
+            "description": "Global perfume standards"
+          }
+        },
+        {
+          "type": "guarantee",
+          "settings": {
+            "icon": "local_shipping",
+            "title": "Express Delivery",
+            "description": "Insured priority dispatch"
+          }
+        }
+      ]
     }
   ]
 }

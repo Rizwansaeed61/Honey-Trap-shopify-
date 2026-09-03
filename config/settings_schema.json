@@ -2,10 +2,10 @@
   {
     "name": "theme_info",
     "theme_name": "Scents 'N Stories - Honey Trap Luxury Haute Parfumerie",
-    "theme_version": "1.0.0",
+    "theme_version": "2.0.0",
     "theme_author": "Scents 'N Stories",
-    "theme_documentation_url": "https://github.com/Rizwansaeed61",
-    "theme_support_url": "https://github.com/Rizwansaeed61"
+    "theme_documentation_url": "https://github.com/Rizwansaeed61/Honey-Trap-shopify-",
+    "theme_support_url": "https://github.com/Rizwansaeed61/Honey-Trap-shopify-"
   },
   {
     "name": "Brand Colors",
@@ -18,6 +18,12 @@
       },
       {
         "type": "color",
+        "id": "color_primary_container",
+        "label": "Primary Container / Glow",
+        "default": "#c98a2c"
+      },
+      {
+        "type": "color",
         "id": "color_secondary",
         "label": "Secondary Accent (Warm Cinnamon)",
         "default": "#904c21"
@@ -25,42 +31,94 @@
       {
         "type": "color",
         "id": "color_background",
-        "label": "Background (Warm Ivory)",
+        "label": "Store Background",
         "default": "#fbf9f5"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Card Surface Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Main Text Color",
+        "default": "#1b1c1a"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Muted Text Color",
+        "default": "#514536"
       }
     ]
   },
   {
-    "name": "Typography & Branding",
+    "name": "Branding & Favicon",
     "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon Image (32x32px .png)"
+      },
       {
         "type": "text",
         "id": "store_subtitle",
-        "label": "Store Subtitle",
+        "label": "Store Tagline",
         "default": "Luxury Artisanal Parfumerie"
-      },
+      }
+    ]
+  },
+  {
+    "name": "Cart Drawer & Shipping",
+    "settings": [
       {
         "type": "number",
         "id": "free_shipping_threshold",
         "label": "Free Shipping Threshold (Rs.)",
         "default": 1500
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_message",
+        "label": "Free Shipping Unlocked Message",
+        "default": "Congratulations! You have unlocked Complimentary Courier Delivery!"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_cart_notes",
+        "label": "Enable Order Special Instructions Note",
+        "default": true
       }
     ]
   },
   {
-    "name": "Social Media",
+    "name": "Social Media Links",
     "settings": [
       {
         "type": "text",
         "id": "social_instagram_link",
-        "label": "Instagram Link",
+        "label": "Instagram URL",
         "default": "https://instagram.com"
       },
       {
         "type": "text",
         "id": "social_facebook_link",
-        "label": "Facebook Link",
+        "label": "Facebook URL",
         "default": "https://facebook.com"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "TikTok URL",
+        "default": "https://tiktok.com"
+      },
+      {
+        "type": "text",
+        "id": "social_whatsapp_number",
+        "label": "WhatsApp VIP Concierge Number",
+        "default": "+923001234567"
       }
     ]
   }
