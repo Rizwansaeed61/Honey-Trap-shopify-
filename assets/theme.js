@@ -192,7 +192,7 @@ class LuxuryCartManager {
 
   initListeners() {
     // Open drawer triggers
-    document.querySelectorAll('[data-cart-trigger], [data-cart-open], .cart-trigger').forEach(btn => {
+    document.querySelectorAll('[data-cart-trigger]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         this.openDrawer();
