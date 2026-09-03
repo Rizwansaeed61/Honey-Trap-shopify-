@@ -18,7 +18,7 @@ COMMON_HEAD = """  <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link rel="stylesheet" href="assets/theme.css"/>
@@ -53,15 +53,15 @@ COMMON_HEAD = """  <meta charset="utf-8"/>
             "outline-variant": "#d6c4b1"
           },
           fontFamily: {
-            "headline-sm": ["Bodoni Moda", "serif"],
-            "headline-md": ["Bodoni Moda", "serif"],
-            "headline-lg": ["Bodoni Moda", "serif"],
-            "display-xl": ["Bodoni Moda", "serif"],
-            "body-md": ["Montserrat", "sans-serif"],
-            "body-lg": ["Montserrat", "sans-serif"],
-            "title-md": ["Montserrat", "sans-serif"],
-            "label-caps": ["Montserrat", "sans-serif"],
-            "label-sm": ["Montserrat", "sans-serif"]
+            "headline-sm": ["Poppins", "sans-serif"],
+            "headline-md": ["Poppins", "sans-serif"],
+            "headline-lg": ["Poppins", "sans-serif"],
+            "display-xl": ["Poppins", "sans-serif"],
+            "body-md": ["Poppins", "sans-serif"],
+            "body-lg": ["Poppins", "sans-serif"],
+            "title-md": ["Poppins", "sans-serif"],
+            "label-caps": ["Poppins", "sans-serif"],
+            "label-sm": ["Poppins", "sans-serif"]
           },
           spacing: {
             "space-2xs": "0.25rem",
