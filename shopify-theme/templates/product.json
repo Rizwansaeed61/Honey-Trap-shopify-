@@ -9,6 +9,8 @@
         "awards_pill_text": "Gourmand Perfume of the Year 2025",
         "show_sillage_meter": true,
         "sillage_text": "12+ Hours Longevity • Intimate to Room-Filling Sillage",
+        "show_sensory_profile": true,
+        "show_trust_badges": true,
         "show_routine_bundle": true,
         "routine_bundle_title": "The Complete Honey Trap Routine",
         "routine_item_2_title": "Honey Trap Silken Hair Mist (50ml)",
@@ -33,12 +35,21 @@
     "testimonials": {
       "type": "testimonials",
       "settings": {}
+    },
+    "sticky_atc": {
+      "type": "sticky-atc",
+      "settings": {
+        "enable_sticky_atc": true,
+        "show_desktop": false,
+        "button_text": "Add to Bag"
+      }
     }
   },
   "order": [
     "main",
     "scent_pyramid",
     "brand_guarantees",
-    "testimonials"
+    "testimonials",
+    "sticky_atc"
   ]
 }

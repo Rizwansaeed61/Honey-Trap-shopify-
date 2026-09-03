@@ -1,3 +1,5 @@
+{{ 'theme.css' | asset_url | stylesheet_tag }}
+
 <div class="max-w-7xl mx-auto px-gutter py-space-md w-full">
   <!-- 1. Breadcrumbs & Fragrance Profile Badges -->
   <div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-lg">
@@ -162,6 +164,29 @@
         </div>
       </div>
 
+      {% if section.settings.show_sensory_profile %}
+        <!-- Fragrance Highlights & Sensory Profile -->
+        <div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm flex flex-col gap-space-sm">
+          <p class="font-headline-sm text-primary font-serif text-base sm:text-lg leading-snug">
+            {{ section.settings.sensory_headline | default: "A hypnotic signature crafted to captivate the senses with warm gourmand euphoria." }}
+          </p>
+          <div class="space-y-space-xs mt-space-2xs">
+            <div class="flex items-center gap-space-xs text-on-surface">
+              <span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-body-md text-xs sm:text-sm">{{ section.settings.bullet_1 | default: "Opens with fresh neroli floral nectar & pure organic honeycomb" }}</span>
+            </div>
+            <div class="flex items-center gap-space-xs text-on-surface">
+              <span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-body-md text-xs sm:text-sm">{{ section.settings.bullet_2 | default: "Decadent heart of toasted almonds, velvety chocolate truffle & spice" }}</span>
+            </div>
+            <div class="flex items-center gap-space-xs text-on-surface">
+              <span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-body-md text-xs sm:text-sm">{{ section.settings.bullet_3 | default: "Rich, lingering dry-down of golden amber resin & Madagascar vanilla" }}</span>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
       <!-- Real Shopify Product Form & Dynamic Variant Selectors -->
       {% form 'product', product, id: 'main-product-form', class: 'flex flex-col gap-space-md' %}
         <input type="hidden" name="id" id="selected-variant-id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -282,6 +307,38 @@
           </div>
         </div>
       {% endform %}
+
+      {% if section.settings.show_trust_badges %}
+        <!-- Artisanal Fragrance Trust Badges Row -->
+        <div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 shadow-sm">
+          <div class="grid grid-cols-4 gap-space-xs text-center">
+            <div class="flex flex-col items-center gap-space-2xs">
+              <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[20px] sm:text-[22px]">schedule</span>
+              </div>
+              <span class="font-label-caps text-[9px] sm:text-[10px] text-on-surface leading-tight font-medium">12+ Hrs<br/>Longevity</span>
+            </div>
+            <div class="flex flex-col items-center gap-space-2xs">
+              <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[20px] sm:text-[22px]">cruelty_free</span>
+              </div>
+              <span class="font-label-caps text-[9px] sm:text-[10px] text-on-surface leading-tight font-medium">Cruelty-Free<br/>&amp; Vegan</span>
+            </div>
+            <div class="flex flex-col items-center gap-space-2xs">
+              <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[20px] sm:text-[22px]">water_drop</span>
+              </div>
+              <span class="font-label-caps text-[9px] sm:text-[10px] text-on-surface leading-tight font-medium">French Pure<br/>Oils (35%)</span>
+            </div>
+            <div class="flex flex-col items-center gap-space-2xs">
+              <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[20px] sm:text-[22px]">palette</span>
+              </div>
+              <span class="font-label-caps text-[9px] sm:text-[10px] text-on-surface leading-tight font-medium">Artisanal<br/>Handcrafted</span>
+            </div>
+          </div>
+        </div>
+      {% endif %}
 
       {% if section.settings.show_routine_bundle %}
         <!-- COMPLETE YOUR ROUTINE / COLLECTION BUNDLE MODULE -->
@@ -735,6 +792,50 @@
       "id": "sillage_text",
       "label": "Sillage Meter Description",
       "default": "12+ Hours Longevity • Intimate to Room-Filling Sillage"
+    },
+    {
+      "type": "header",
+      "content": "Sensory Profile & Highlights"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sensory_profile",
+      "label": "Show Sensory Profile Highlights",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sensory_headline",
+      "label": "Sensory Headline",
+      "default": "A hypnotic signature crafted to captivate the senses with warm gourmand euphoria."
+    },
+    {
+      "type": "text",
+      "id": "bullet_1",
+      "label": "Highlight 1",
+      "default": "Opens with fresh neroli floral nectar & pure organic honeycomb"
+    },
+    {
+      "type": "text",
+      "id": "bullet_2",
+      "label": "Highlight 2",
+      "default": "Decadent heart of toasted almonds, velvety chocolate truffle & spice"
+    },
+    {
+      "type": "text",
+      "id": "bullet_3",
+      "label": "Highlight 3",
+      "default": "Rich, lingering dry-down of golden amber resin & Madagascar vanilla"
+    },
+    {
+      "type": "header",
+      "content": "Artisanal Trust Badges"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_badges",
+      "label": "Show Artisanal Trust Badges",
+      "default": true
     },
     {
       "type": "header",

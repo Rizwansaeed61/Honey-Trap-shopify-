@@ -60,11 +60,12 @@ h1, h2, h3, h4, h5, h6, .font-serif, .font-headline-lg, .font-display-xl, .font-
   background: var(--color-primary);
 }
 
-/* Glassmorphism & Ambient Glows */
-.glass-nav {
-  background: rgba(251, 249, 245, 0.95);
+/* Luxury Card Styling */
+.luxury-glass {
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(214, 196, 177, 0.4);
 }
 
 .ambient-glow {
@@ -99,9 +100,28 @@ h1, h2, h3, h4, h5, h6, .font-serif, .font-headline-lg, .font-display-xl, .font-
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Size radio indicators */
+/* Size radio indicators & cards */
+.size-card {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.size-card:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-low);
+}
 .size-card.active {
   background-color: var(--color-surface-low);
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+
+/* Option Pill Buttons */
+.option-pill {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.option-pill:hover {
   border-color: var(--color-primary);
 }
 
@@ -120,4 +140,34 @@ h1, h2, h3, h4, h5, h6, .font-serif, .font-headline-lg, .font-display-xl, .font-
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Product Media & Showcase */
+#main-product-image {
+  filter: drop-shadow(0 15px 25px rgba(132, 84, 0, 0.18));
+  transition: transform 0.3s ease;
+}
+#main-product-image:hover {
+  transform: scale(1.03);
+}
+
+/* Quantity Stepper */
+.quantity-stepper input[type=number]::-webkit-inner-spin-button,
+.quantity-stepper input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Primary CTA Gradient */
+.btn-primary-gradient {
+  background: linear-gradient(90deg, #845400 0%, #c98a2c 60%, #904c21 100%);
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+.btn-primary-gradient:hover {
+  box-shadow: 0 10px 25px -5px rgba(132, 84, 0, 0.4);
+  transform: translateY(-1px);
+}
+.btn-primary-gradient:active {
+  transform: scale(0.98);
 }
